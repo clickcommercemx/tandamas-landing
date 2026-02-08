@@ -1,0 +1,16 @@
+# Normalizar saltos de línea (evita conflictos y "cambios fantasma" en Windows)
+* text=auto eol=lf
+
+# Asegurar que HTML/CSS/JS se traten como texto
+*.html text
+*.css text
+*.js text
+*.json text
+*.md text
+
+# Binarios (no convertir)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.woff2 binary

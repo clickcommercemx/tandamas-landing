@@ -1,0 +1,1028 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Tanda+ (Tanda Más): organiza tandas digitales con familia y amigos, o compra productos a plazos sin intereses. Todo en una sola app." />
+  <meta name="theme-color" content="#667EEA" />
+
+  <meta property="og:title" content="Tanda+ (Tanda Más) — Ahorra en comunidad" />
+  <meta property="og:description" content="Organiza tandas digitales o compra productos a plazos sin intereses. Pagos con OXXO, SPEI o tarjeta. Todo verificado y seguro." />
+  <meta property="og:type" content="website" />
+
+  <title>Tanda+ (Tanda Más) — Ahorra en comunidad</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Brand */
+      --primary: #667EEA;
+      --primary-dark: #764BA2;
+      --accent: #10B981;
+
+      /* Neutrals */
+      --bg: #F9FAFB;
+      --surface: #FFFFFF;
+      --text: #111827;
+      --muted: #6B7280;
+      --border: #E5E7EB;
+
+      /* Extras */
+      --shadow: 0 12px 40px rgba(17,24,39,.10);
+      --radius: 18px;
+      --max: 1120px;
+
+      --grad-hero: linear-gradient(135deg, rgba(102,126,234,1) 0%, rgba(118,75,162,1) 100%);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px;}
+
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border-radius:999px;
+      background:rgba(16,185,129,.12);
+      color:#065F46; font-weight:600; font-size:13px;
+      border:1px solid rgba(16,185,129,.18);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 0 0 rgba(16,185,129,.45);
+      animation:pulse 2s infinite;
+    }
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(16,185,129,.45)}
+      70%{box-shadow:0 0 0 10px rgba(16,185,129,0)}
+      100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}
+    }
+
+    /* NAV (fixed height; logo can be big without growing navbar) */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(160%) blur(10px);
+      background:rgba(249,250,251,.75);
+      border-bottom:1px solid rgba(229,231,235,.70);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      height:72px; /* fixed */
+      gap:14px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:800;
+      letter-spacing:-.02em;
+      min-width:0;
+      flex: 1 1 auto;
+      overflow:hidden;
+    }
+    .brand img{
+      height:60px;  /* keep navbar fixed */
+      width:auto;
+      object-fit:contain;
+      border-radius:16px;
+      flex:0 0 auto;
+      max-height:60px;
+    }
+    .brand .brand-sub{
+      color:var(--muted);
+      font-weight:800;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:220px;
+    }
+
+    .nav-links{
+      display:flex; gap:18px; align-items:center;
+      color:var(--muted);
+      font-weight:600;
+      font-size:14px;
+      flex:0 0 auto;
+    }
+    .nav-links a{padding:10px 10px; border-radius:10px}
+    .nav-links a:hover{background:rgba(17,24,39,.05); color:var(--text)}
+    .nav-cta{display:flex; gap:10px; align-items:center; flex:0 0 auto}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
+      font-weight:700;
+      font-size:14px;
+      border:1px solid transparent;
+      transition:transform .08s ease, background .2s ease, border-color .2s ease, color .2s ease;
+      white-space:nowrap;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{
+      background:var(--primary);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(102,126,234,.28);
+    }
+    .btn-primary:hover{background:#5A73E6}
+    .btn-outline{
+      background:transparent;
+      color:var(--text);
+      border-color:rgba(17,24,39,.18);
+    }
+    .btn-outline:hover{background:rgba(17,24,39,.05)}
+    .btn-white{
+      background:#fff;
+      color:var(--text);
+      border-color:rgba(255,255,255,.55);
+      box-shadow:0 10px 24px rgba(0,0,0,.12);
+    }
+    .btn-white:hover{background:rgba(255,255,255,.92)}
+
+    /* HERO */
+    .hero{
+      background:var(--grad-hero);
+      color:#fff;
+      padding:64px 0 44px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-120px -120px auto auto;
+      width:380px; height:380px; border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,.24), transparent 60%);
+      filter:blur(4px);
+    }
+    .hero:after{
+      content:"";
+      position:absolute; inset:auto auto -140px -140px;
+      width:520px; height:520px; border-radius:50%;
+      background:radial-gradient(circle, rgba(16,185,129,.22), transparent 60%);
+      filter:blur(6px);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:34px;
+      align-items:center;
+      position:relative;
+      z-index:2;
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:clamp(34px, 4vw, 54px);
+      line-height:1.05;
+      letter-spacing:-.03em;
+    }
+    .hero-sub{
+      margin:0 0 18px;
+      font-size:18px;
+      color:rgba(255,255,255,.86);
+      max-width:58ch;
+    }
+    .hero-ctas{display:flex; flex-wrap:wrap; gap:12px; margin-top:16px}
+    .hero-note{
+      margin-top:16px;
+      font-size:13px;
+      color:rgba(255,255,255,.78);
+    }
+    .store-badges{
+      display:flex; gap:12px; flex-wrap:wrap; margin-top:10px;
+    }
+    .badge-store{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      font-weight:700;
+    }
+    .badge-store small{display:block; font-weight:600; opacity:.85}
+
+    /* HERO MOCK with parallax (mouse + touch, controlled by full screen pointer position) */
+    .mock{
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.20);
+      border-radius:26px;
+      box-shadow:0 18px 50px rgba(0,0,0,.22);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+      perspective:1000px;
+      transform-style:preserve-3d;
+      -webkit-transform: translateZ(0);
+      touch-action: pan-y; /* keep scroll */
+    }
+    .mock-glare{
+      position:absolute;
+      inset:-40px;
+      pointer-events:none;
+      opacity:.55;
+      transition:opacity .25s ease;
+      background:radial-gradient(circle at 50% 40%, rgba(255,255,255,.22), transparent 60%);
+      mix-blend-mode:screen;
+    }
+    .mock-inner{
+      transform-style:preserve-3d;
+      will-change:transform;
+      transition:transform 140ms ease;
+    }
+    .mock img{
+      width:100%;
+      height:auto;
+      border-radius:26px;
+      display:block;
+      box-shadow:0 18px 50px rgba(0,0,0,.22);
+      max-width:520px;
+      margin-left:auto;
+      margin-right:auto;
+      transform:translateZ(20px);
+    }
+
+    /* SECTIONS */
+    section{padding:64px 0}
+    .section-head{display:flex; flex-direction:column; gap:10px; margin-bottom:28px}
+    .kicker{
+      font-weight:800;
+      color:rgba(17,24,39,.60);
+      letter-spacing:.12em;
+      font-size:12px;
+    }
+    h2{
+      margin:0;
+      font-size:clamp(26px, 3vw, 40px);
+      line-height:1.12;
+      letter-spacing:-.03em;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      max-width:75ch;
+      font-size:16px;
+    }
+
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:stretch}
+    .grid-3{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
+
+    .feature{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .feature h3{margin:10px 0 6px; font-size:18px; letter-spacing:-.02em}
+    .feature p{margin:0; color:var(--muted)}
+    .icon{
+      width:44px;height:44px;border-radius:14px;
+      display:grid;place-items:center;
+      background:rgba(102,126,234,.12);
+      border:1px solid rgba(102,126,234,.18);
+      font-size:20px;
+    }
+    .icon.green{background:rgba(16,185,129,.12); border-color:rgba(16,185,129,.18)}
+
+    .split{display:grid; grid-template-columns: 1fr 1fr; gap:22px; align-items:start}
+    .panel{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    .media{
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(102,126,234,.12), rgba(118,75,162,.10));
+      box-shadow:var(--shadow);
+      padding:18px;
+      overflow:hidden;
+    }
+    .media img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:calc(var(--radius) - 6px);
+    }
+
+    /* Trust section */
+    .trust-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      align-items:start;
+    }
+    .trust-bullets{
+      margin:14px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .trust-badge-row{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    /* Testimonials */
+    .quote{
+      padding:22px;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:var(--surface);
+      box-shadow:var(--shadow);
+    }
+    .quote h4{margin:0 0 10px; font-size:16px}
+    .quote p{margin:0; color:var(--muted)}
+    .who{margin-top:14px; font-weight:800; font-size:13px}
+    .stars{color:#F59E0B; letter-spacing:2px; font-size:14px}
+
+    /* FAQ */
+    .faq{
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:var(--surface);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    details{padding:18px 18px; border-bottom:1px solid var(--border)}
+    details:last-child{border-bottom:none}
+    summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:-.02em;
+    }
+    summary::-webkit-details-marker{display:none}
+    .faq p{margin:12px 0 0; color:var(--muted)}
+    .chev{
+      width:34px;height:34px;border-radius:12px;
+      display:grid;place-items:center;
+      background:rgba(17,24,39,.05);
+      border:1px solid rgba(17,24,39,.08);
+      flex:0 0 auto;
+      transition:transform .15s ease;
+    }
+    details[open] .chev{transform:rotate(180deg)}
+    .muted{color:var(--muted)}
+
+    /* CTA */
+    .cta{
+      background:var(--grad-hero);
+      color:#fff;
+      border-radius:calc(var(--radius) + 6px);
+      padding:26px;
+      box-shadow:0 20px 60px rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.16);
+      overflow:hidden;
+      position:relative;
+    }
+    .cta:before{
+      content:"";
+      position:absolute; inset:-80px -80px auto auto;
+      width:280px;height:280px;border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,.22), transparent 60%);
+    }
+    .cta-grid{
+      position:relative;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+      align-items:center;
+      z-index:2;
+    }
+    .cta h3{margin:0 0 8px; font-size:28px; letter-spacing:-.03em}
+    .cta p{margin:0; color:rgba(255,255,255,.84)}
+    .cta .store-badges{margin:10px 0 0}
+
+    /* Footer */
+    footer{
+      background:#0B1220;
+      color:rgba(255,255,255,.85);
+      padding:48px 0 24px;
+      margin-top:64px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap:18px;
+      align-items:start;
+    }
+    .footer-title{font-weight:900; color:#fff; margin:0 0 10px}
+    .footer a{color:rgba(255,255,255,.78)}
+    .footer a:hover{color:#fff}
+    .footer ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px}
+    .fine{
+      margin-top:22px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.12);
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between;
+      font-size:12px;
+      color:rgba(255,255,255,.62);
+    }
+
+    /* LEGAL MODAL */
+    .legal-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(10,14,26,.62);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      z-index:120;
+    }
+    .legal-overlay[aria-hidden="false"]{display:flex}
+    .legal-modal{
+      width:min(980px, 100%);
+      max-height:min(86vh, 900px);
+      background:var(--surface);
+      border:1px solid rgba(229,231,235,.9);
+      border-radius:22px;
+      box-shadow:0 28px 90px rgba(0,0,0,.35);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+    .legal-top{
+      padding:16px 18px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(102,126,234,.10), transparent);
+    }
+    .legal-top h3{
+      margin:0;
+      font-size:18px;
+      letter-spacing:-.02em;
+    }
+    .legal-meta{
+      margin-top:4px;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:600;
+    }
+    .legal-close{
+      border:1px solid rgba(17,24,39,.12);
+      background:#fff;
+      border-radius:14px;
+      padding:10px 12px;
+      font-weight:800;
+      cursor:pointer;
+      transition:transform .08s ease, background .2s ease;
+      white-space:nowrap;
+    }
+    .legal-close:hover{background:rgba(17,24,39,.04)}
+    .legal-close:active{transform:translateY(1px)}
+    .legal-body{
+      padding:18px;
+      overflow:auto;
+      line-height:1.6;
+      -webkit-overflow-scrolling: touch;
+    }
+    .legal-body h1, .legal-body h2, .legal-body h3, .legal-body h4{
+      color:#0B1220;
+    }
+    .legal-body h1{font-size:22px; margin:0 0 10px}
+    .legal-body h2{font-size:18px; margin:18px 0 10px}
+    .legal-body h3{font-size:15px; margin:14px 0 8px}
+    .legal-body h4{font-size:14px; margin:12px 0 6px}
+    .legal-body p{margin:0 0 10px; color:#111827}
+    .legal-body ul, .legal-body ol{
+      margin:10px 0 14px;
+      padding-left:20px;
+      color:#111827;
+    }
+    .legal-body li{margin:6px 0}
+    .legal-divider{
+      height:1px;
+      background:rgba(229,231,235,.9);
+      margin:16px 0;
+    }
+    .legal-note{
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(102,126,234,.22);
+      background:rgba(102,126,234,.08);
+      color:#1F2A6B;
+      font-weight:600;
+      margin:12px 0 0;
+    }
+
+    /* Responsive (fix mobile overlap: hide subtitle + keep only one button) */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2, .split, .cta-grid{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .trust-grid{grid-template-columns:1fr}
+      .nav-inner{height:68px}
+      .brand img{height:54px; max-height:54px}
+      .brand .brand-sub{display:none;}
+    }
+    @media (max-width: 520px){
+      .footer-grid{grid-template-columns:1fr}
+      .hero{padding:52px 0 34px}
+      .mock{padding:12px}
+      .mock img{border-radius:22px}
+      .media{padding:12px}
+      .media img{border-radius:14px}
+      .nav-inner{height:64px}
+      .brand img{height:48px; max-height:48px}
+      .nav-cta .btn-primary{padding:10px 14px; font-size:14px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="#inicio" aria-label="Ir al inicio">
+          <img src="assets/logo-tanda-mas.png" alt="Logo Tanda Más" onerror="this.style.display='none'">
+          <span class="brand-sub">(Tanda Más)</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="#que-es">Qué es</a>
+          <a href="#como-funciona">Cómo funciona</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#precios">Sistema</a>
+          <a href="#faq">FAQs</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn btn-primary" href="#descargar">Descargar App</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="inicio" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="pill"><span class="dot"></span>Disponible en México</span>
+
+          <h1>La nueva satisfacción de ahorrar en comunidad</h1>
+          <p class="hero-sub">
+            Organiza tandas digitales con tu familia y amigos, o compra productos a plazos sin intereses.
+            Todo en una sola app.
+          </p>
+
+          <div class="store-badges" id="descargar">
+            <a class="badge-store" href="#" aria-label="Descargar en App Store">
+              <span></span>
+              <span><small>Descargar en</small>App Store</span>
+            </a>
+            <a class="badge-store" href="#" aria-label="Descargar en Google Play">
+              <span>▶</span>
+              <span><small>Disponible en</small>Google Play</span>
+            </a>
+          </div>
+
+          <div class="hero-ctas">
+            <a class="btn btn-white" href="#como-funciona">Ver cómo funciona</a>
+            <a class="btn btn-outline" style="border-color:rgba(255,255,255,.35); color:#fff;" href="#precios">Ver sistema</a>
+          </div>
+
+          <p class="hero-note">*Términos y tarifas sujetos a cambios. Pagos procesados de forma segura.</p>
+        </div>
+
+        <!-- Parallax mock -->
+        <div class="mock" id="mockParallax" aria-label="Mockup de la app">
+          <div class="mock-glare" id="mockGlare" aria-hidden="true"></div>
+          <div class="mock-inner" id="mockInner">
+            <img
+              src="assets/mock-viaje.png"
+              alt="Vista de Tanda+: resumen de tanda, control de pagos, progreso del ciclo y turno actual"
+            />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- SECTION: WHAT IS -->
+  <section id="que-es">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">LLEGAR LEJOS JUNTOS</div>
+        <h2>Tu dinero, tu comunidad, tu control</h2>
+        <p class="lead">
+          Tanda+ es una app mexicana que digitaliza las tandas tradicionales y te permite comprar productos
+          a plazos sin intereses. Olvídate de libretas, grupos de WhatsApp y desconfianza:
+          aquí todo queda registrado, verificado y seguro.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="feature">
+          <div class="icon">👥</div>
+          <h3>Tandas digitales</h3>
+          <p>Crea y organiza tandas con tu círculo. Registro automático de pagos, recordatorios y seguimiento en tiempo real.</p>
+        </div>
+
+        <div class="feature">
+          <div class="icon">📦</div>
+          <h3>Tanda+ Tienda</h3>
+          <p>Compra TVs, celulares, laptops y más a plazos sin intereses. Paga poco a poco y recibe tu producto al completar. O paga en grupo y reciban un producto en cada plazo.</p>
+        </div>
+
+        <div class="feature">
+          <div class="icon green">🔒</div>
+          <h3>Seguridad verificada</h3>
+          <p>Verificación de identidad, pagos seguros (OXXO, SPEI, tarjeta) y registro inmutable de transacciones.</p>
+        </div>
+
+        <div class="feature">
+          <div class="icon">📱</div>
+          <h3>Todo en tu celular</h3>
+          <p>Sin papeleo, sin efectivo perdido, sin excusas. Administra tus tandas y tus compras desde cualquier lugar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: HOW IT WORKS -->
+  <section id="como-funciona">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">CÓMO FUNCIONA</div>
+        <h2>Dos formas de ahorrar (y ambas son simples)</h2>
+        <p class="lead">Tandas tradicionales con trazabilidad digital, o compras a plazos sin intereses dentro de la Tienda.</p>
+      </div>
+
+      <div class="split">
+        <div class="panel">
+          <h3 style="margin:0 0 10px; letter-spacing:-.02em;">Para tandas tradicionales</h3>
+          <ol class="muted" style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:10px;">
+            <li><b>Crea tu tanda:</b> monto, participantes y frecuencia (semanal/quincenal/mensual).</li>
+            <li><b>Invita a tu círculo:</b> comparte el código por WhatsApp. Solo personas verificadas se unen.</li>
+            <li><b>Todos pagan:</b> OXXO, SPEI o tarjeta desde la app. Todo queda registrado.</li>
+            <li><b>Turnos automáticos:</b> el sistema asigna y entrega el bote puntualmente. Transparencia total.</li>
+          </ol>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <span class="pill"><span class="dot" style="animation:none"></span>Recordatorios automáticos</span>
+            <span class="pill" style="background:rgba(102,126,234,.12); border-color:rgba(102,126,234,.18); color:#3730A3;">
+              Registro inmutable
+            </span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3 style="margin:0 0 10px; letter-spacing:-.02em;">Para Tanda+ Tienda</h3>
+          <ol class="muted" style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:10px;">
+            <li><b>Elige tu producto:</b> electrónicos, electrodomésticos y más.</li>
+            <li><b>Selecciona tu plan:</b> Individual a meses. Sin intereses. Ó colectivo a plazos personalizados.</li>
+            <li><b>Paga poco a poco:</b> pagos mensuales desde la app. Te recordamos cada fecha.</li>
+            <li><b>Recibe en tu casa:</b> al completar pagos, enviamos a domicilio. ¡Gratis!</li>
+          </ol>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <span class="pill"><span class="dot" style="animation:none"></span>Sin buró</span>
+            <span class="pill" style="background:rgba(245,158,11,.14); border-color:rgba(245,158,11,.20); color:#92400E;">
+              Envío gratis al completar
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:22px" class="media" aria-label="Ilustración de comunidad y ahorro">
+        <img
+          src="assets/ilustracion-comunidad-ahorro.png"
+          alt="Ilustración: comunidad + transparencia = ahorro que avanza"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: SERVICES -->
+  <section id="servicios">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">SERVICIOS</div>
+        <h2>Elige cómo usar Tanda+ (Tanda Más)</h2>
+        <p class="lead">Tanda personalizadas, organiza gratis 1 tanda a la vez, paga sólo $39 MXN por cada tanda extra sin inportar montos, o la Tienda a plazos sin intereses. Lo que necesites, cuando lo necesites.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="feature">
+          <div class="icon">🆓</div>
+          <h3>Tanda gratis</h3>
+          <p>Organiza una tanda digital o únete hasta a 5 tandas por código de invitación. Transferencias SPEI sin costo.</p>
+          <ul class="muted" style="margin:12px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:8px;">
+            <li>Recordatorios automáticos</li>
+            <li>Registro de pagos</li>
+            <li>Turnos aleatorios o manuales</li>
+          </ul>
+        </div>
+
+        <div class="feature" style="border-color:rgba(102,126,234,.35)">
+          <div class="icon">🚀</div>
+          <h3>Tanda extra</h3>
+          <p>Para organizadoras frecuentes: crea más tandas por $39 c/u.</p>
+          <ul class="muted" style="margin:12px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:8px;">
+            <li>Hasta $10,000 por turno, por participante</li>
+            <li>Pago con tarjeta de crédito o deposito en oxxo </li>
+            <li>Comunicación con tu grupo de tanda</li>
+          </ul>
+        </div>
+
+        <div class="feature">
+          <div class="icon">📦</div>
+          <h3>Tanda+ Tienda</h3>
+          <p>Compra a plazos sin intereses y recibe al completar pagos. O compra en grupo y reciban 1 producto por turno. Envío gratis y garantía incluida.</p>
+          <ul class="muted" style="margin:12px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:8px;">
+            <li>TVs, celulares, laptops</li>
+            <li>Plazos 3, 6, 10, 12 meses ó plazos personalizados en tanda colectiva</li>
+            <li>Sin buró de crédito</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: TRUST -->
+  <section id="precios">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">SISTEMA Y CONFIANZA</div>
+        <h2>Transparente desde el inicio</h2>
+        <p class="lead">Conoce cómo Tanda+ protege a la comunidad y premia a quienes cumplen.</p>
+      </div>
+
+      <div class="trust-grid">
+        <div class="panel">
+          <h3 style="margin:0 0 10px; letter-spacing:-.02em;">Sistema de Confianza Tanda+</h3>
+          <p class="muted" style="margin:0;">
+            Cada usuario tiene un <b>puntaje de confianza</b> basado en su historial:
+            <b>tandas completadas</b>, <b>pagos a tiempo</b> y <b>sin cancelaciones</b>.
+            Además, colecciona <b>cartas de Lotería Mexicana</b> como recompensas por buen comportamiento.
+            <b>Más cartas + mejor historial = más confianza</b> en la comunidad.
+          </p>
+
+          <ul class="trust-bullets">
+            <li><b>Score visible:</b> los grupos ven una señal clara de confiabilidad antes de unirse.</li>
+            <li><b>Recompensas:</b> cartas coleccionables que muestran constancia y buen historial.</li>
+            <li><b>Mejores beneficios:</b> mayor confianza desbloquea mejores límites y acceso a tandas.</li>
+          </ul>
+
+          <div class="trust-badge-row">
+            <span class="pill" style="background:rgba(102,126,234,.12); border-color:rgba(102,126,234,.18); color:#3730A3;">Score de confianza</span>
+            <span class="pill" style="background:rgba(245,158,11,.14); border-color:rgba(245,158,11,.20); color:#92400E;">Cartas Lotería MX</span>
+            <span class="pill"><span class="dot" style="animation:none"></span>Pagos puntuales</span>
+          </div>
+        </div>
+
+        <!-- Image space -->
+        <div class="media" aria-label="Ejemplo del sistema de confianza">
+          <img
+            src="assets/ejemplo-sistema-confianza.png"
+            alt="Ejemplo visual: puntaje de confianza y cartas de lotería obtenidas"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: TESTIMONIALS -->
+  <section id="testimonios">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">OPINIONES DIGITALES</div>
+        <h2>Soluciones reales</h2>
+        <p class="lead">.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="quote">
+          <div class="stars">★★★★★</div>
+          <h4>"La mejor parte es que todo queda registrado"</h4>
+          <p>Antes era un caos con WhatsApp. Ahora cada pago queda claro y puedo organizar mejor.</p>
+          <div class="who">— Laura G.</div>
+        </div>
+        <div class="quote">
+          <div class="stars">★★★★★</div>
+          <h4>"Pagos automáticos = tranquilidad"</h4>
+          <p>Ya no tengo que perseguir gente. Los recordatorios y el historial ayudan mucho.</p>
+          <div class="who">— José A.</div>
+        </div>
+        <div class="quote">
+          <div class="stars">★★★★★</div>
+          <h4>"Espero que la gente que organiza tandas la use"</h4>
+          <p>Es muy útil, se las voy a recomendar a mis conocidos</p>
+          <div class="who">— Patricia M.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">PREGUNTAS FRECUENTES</div>
+        <h2>Resolvemos tus dudas</h2>
+        <p class="lead">Tandas, Tienda y pagos. Todo lo esencial antes de descargar.</p>
+      </div>
+
+      <div class="faq" role="region" aria-label="Preguntas frecuentes">
+        <details>
+          <summary>¿Qué es una tanda? <span class="chev">⌄</span></summary>
+          <p>Una tanda es un sistema de ahorro colectivo: un grupo aporta una cantidad fija periódicamente y cada periodo una persona recibe el total acumulado (el "bote").</p>
+        </details>
+
+        <details>
+          <summary>¿Es seguro usar Tanda+? <span class="chev">⌄</span></summary>
+          <p>Sí. Hay proceso de verificación de usuarios, los pagos se procesan con Conekta y cada transacción queda registrada.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué pasa si alguien no paga? <span class="chev">⌄</span></summary>
+          <p>El organizador puede enviar recordatorios automáticos. Si un participante falla repetidamente, su reputación se ve afectada y puede ser excluido de futuras tandas.</p>
+        </details>
+
+        <details>
+          <summary>¿Cobran intereses en la Tienda? <span class="chev">⌄</span></summary>
+          <p>No. El precio que ves es el precio que pagas. Sin intereses ni cargos ocultos.</p>
+        </details>
+
+        <details>
+          <summary>¿Cómo pago? <span class="chev">⌄</span></summary>
+          <p>Puedes pagar en OXXO (efectivo), por transferencia SPEI, o con tarjeta de crédito/débito desde la app.</p>
+        </details>
+
+        <details>
+          <summary>¿Puedo pagar adelantado? <span class="chev">⌄</span></summary>
+          <p>Sí. Puedes adelantar pagos o liquidar el total en cualquier momento sin penalización.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section aria-label="Descarga la app">
+    <div class="container">
+      <div class="cta">
+        <div class="cta-grid">
+          <div>
+            <h3>Empieza a ahorrar juntos</h3>
+            <p>Descarga la app Tanda+ ahora y organiza tu próxima tanda (o compra a plazos sin intereses) en minutos.</p>
+            <div class="store-badges">
+              <a class="badge-store" href="#" aria-label="Descargar en App Store">
+                <span></span>
+                <span><small>Descargar en</small>App Store</span>
+              </a>
+              <a class="badge-store" href="#" aria-label="Descargar en Google Play">
+                <span>▶</span>
+                <span><small>Disponible en</small>Google Play</span>
+              </a>
+            </div>
+          </div>
+          <div class="panel" style="background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.18); color:#fff;">
+            <h4 style="margin:0 0 10px;">Métodos de pago</h4>
+            <p style="margin:0; color:rgba(255,255,255,.84)">
+              🏪 OXXO &nbsp;&nbsp; 🏦 SPEI &nbsp;&nbsp; 💳 Tarjeta<br/>
+              <span style="opacity:.82"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:14px; font-size:13px;">*Términos y tarifas sujetos a cambios.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contacto">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">CONTACTO</div>
+        <h2>¿Necesitas ayuda?</h2>
+        <p class="lead">Soporte de lunes a viernes, 9:00 AM – 6:00 PM (Hora CDMX).</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <h3 style="margin:0 0 10px;">Soporte</h3>
+          <p class="muted" style="margin:0 0 12px;">
+            Email: <a href="mailto:equipo@tandamas.mx"><b>equipo@tandamas.mx</b></a><br/>
+            Ubicación: Oaxaca de Juárez, Oaxaca, México
+          </p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="mailto:equipo@tandamas.mx">Enviar email</a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3 style="margin:0 0 10px;">Redes</h3>
+          <p class="muted" style="margin:0 0 12px;">
+            Instagram: <a href="https://www.instagram.com/tandamas.mx/"><b>@tandamas.mx</b></a><br/>
+            Facebook: <a href="https://www.facebook.com/TANDAMASAPP"><b>/tandamasapp</b></a><br/>
+            TikTok: <a href="https://www.tiktok.com/@tandamasapp"><b>@tandamasapp</b></a>
+          </p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-outline" href="https://www.instagram.com/tandamas.mx/">Instagram</a>
+            <a class="btn btn-outline" href="https://www.tiktok.com/@tandamasapp">TikTok</a>
+            <a class="btn btn-outline" href="https://www.facebook.com/TANDAMASAPP">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" aria-label="Footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-title">Tanda+ (Tanda Más)</p>
+          <p style="margin:0; color:rgba(255,255,255,.72)">
+            Pagos procesados de forma segura.<br/>
+            Tanda+ actúa como intermediario tecnológico y no es institución financiera.
+          </p>
+        </div>
+
+        <div>
+          <p class="footer-title">Útiles</p>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#precios">Sistema</a></li>
+            <li><a href="#faq">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-title">Legal</p>
+          <ul>
+            <li><a href="#" data-legal="terms">Términos y condiciones</a></li>
+            <li><a href="#" data-legal="privacy">Aviso de privacidad</a></li>
+            <li><a href="#" data-legal="returns">Política de devoluciones</a></li>
+            <li><a href="#" data-legal="shipping">Política de envíos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-title">Contacto</p>
+          <ul>
+            <li><a href="mailto:equipo@tandamas.mx">equipo@tandamas.mx</a></li>
+            <li><a href="#contacto">Oaxaca, MX</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="fine">
+        <div>© 2026 Tanda+. Todos los derechos reservados.</div>
+        <div class="muted">*Términos y tarifas sujetos a cambios.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LEGAL MODAL -->
+  <div class="legal-overlay" id="legalOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Documento legal">
+    <div class="legal-modal" role="document">
+      <div class="legal-top">
+        <div>
+          <h3 id="legalTitle">Documento</h3>
+          <div class="legal-meta" id="legalMeta"></div>
+        </div>
+        <button class="legal-close" id="legalClose" type="button" aria-label="Cerrar">Cerrar ✕</button>
+      </div>
+      <div class="legal-body" id="legalContent"></div>
+    </div>
+  </div>
+
+  <script src="legal-modal.js"></script>
+</body>
+</html>
