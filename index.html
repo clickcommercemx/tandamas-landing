@@ -538,7 +538,44 @@
       margin:12px 0 0;
     }
 
-    /* Responsive (fix mobile overlap: hide subtitle + keep only one button) */
+    /* PRIVACY ROUTE PAGE */
+    .privacy-shell{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+    .privacy-hero{
+      background:var(--grad-hero);
+      color:#fff;
+      padding:46px 0 30px;
+    }
+    .privacy-hero h1{
+      margin:0 0 10px;
+      font-size:clamp(28px, 3.2vw, 44px);
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+    .privacy-hero p{
+      margin:0;
+      color:rgba(255,255,255,.84);
+      max-width:70ch;
+    }
+    .privacy-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:18px;
+      margin-top:-22px;
+    }
+    .privacy-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+
+    /* Responsive */
     @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr}
       .grid-3{grid-template-columns:1fr}
@@ -566,346 +603,95 @@
 
 <body>
 
-  <!-- NAV -->
-  <header class="nav">
-    <div class="container">
-      <div class="nav-inner">
-        <a class="brand" href="#inicio" aria-label="Ir al inicio">
-          <img src="assets/logo-tanda-mas.png" alt="Logo Tanda Más" onerror="this.style.display='none'">
-          <span class="brand-sub">(Tanda Más)</span>
-        </a>
-
-        <nav class="nav-links" aria-label="Navegación principal">
-          <a href="#que-es">Qué es</a>
-          <a href="#como-funciona">Cómo funciona</a>
-          <a href="#servicios">Servicios</a>
-          <a href="#precios">Sistema</a>
-          <a href="#faq">FAQs</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
-
-        <div class="nav-cta">
-          <a class="btn btn-primary" href="#descargar">Descargar App</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <main id="inicio" class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div>
-          <span class="pill"><span class="dot"></span>Disponible en México</span>
-
-          <h1>La nueva satisfacción de ahorrar en comunidad</h1>
-          <p class="hero-sub">
-            Organiza tandas digitales con tu familia y amigos, o compra productos a plazos sin intereses.
-            Todo en una sola app.
-          </p>
-
-          <div class="store-badges" id="descargar">
-            <a class="badge-store" href="#" aria-label="Descargar en App Store">
-              <span></span>
-              <span><small>Descargar en</small>App Store</span>
+  <!-- ✅ Ruta dedicada para Google: /privacy-policy (sin archivo extra) -->
+  <div id="privacyRoute" style="display:none">
+    <div class="privacy-shell">
+      <header class="nav" style="position:sticky">
+        <div class="container">
+          <div class="nav-inner">
+            <a class="brand" href="/" aria-label="Ir al inicio">
+              <img src="assets/logo-tanda-mas.png" alt="Logo Tanda Más" onerror="this.style.display='none'">
+              <span class="brand-sub">(Tanda Más)</span>
             </a>
-            <a class="badge-store" href="#" aria-label="Descargar en Google Play">
-              <span>▶</span>
-              <span><small>Disponible en</small>Google Play</span>
-            </a>
-          </div>
-
-          <div class="hero-ctas">
-            <a class="btn btn-white" href="#como-funciona">Ver cómo funciona</a>
-            <a class="btn btn-outline" style="border-color:rgba(255,255,255,.35); color:#fff;" href="#precios">Ver sistema</a>
-          </div>
-
-          <p class="hero-note">*Términos y tarifas sujetos a cambios. Pagos procesados de forma segura.</p>
-        </div>
-
-        <!-- Parallax mock -->
-        <div class="mock" id="mockParallax" aria-label="Mockup de la app">
-          <div class="mock-glare" id="mockGlare" aria-hidden="true"></div>
-          <div class="mock-inner" id="mockInner">
-            <img
-              src="assets/mock-viaje.png"
-              alt="Vista de Tanda+: resumen de tanda, control de pagos, progreso del ciclo y turno actual"
-            />
+            <div class="nav-cta">
+              <a class="btn btn-white" href="/">Volver al inicio</a>
+            </div>
           </div>
         </div>
+      </header>
 
-      </div>
+      <main class="privacy-hero">
+        <div class="container">
+          <h1>Aviso de privacidad / Privacy Policy</h1>
+          <p>Documento informativo sobre el tratamiento de datos personales conforme a la Sección 20 de los Términos y Condiciones.</p>
+        </div>
+      </main>
+
+      <section style="padding:22px 0 60px">
+        <div class="container">
+          <div class="privacy-card">
+            <div class="legal-body" id="privacyStandalone"></div>
+            <div class="privacy-actions">
+              <a class="btn btn-outline" href="/">Volver al sitio</a>
+              <a class="btn btn-primary" href="#" id="openTermsFromPrivacy">Abrir Términos y condiciones</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer" aria-label="Footer" style="margin-top:auto">
+        <div class="container">
+          <div class="fine" style="border-top:none; padding-top:0; margin-top:0">
+            <div>© 2026 Tanda+. Todos los derechos reservados.</div>
+            <div class="muted">*Términos y tarifas sujetos a cambios.</div>
+          </div>
+        </div>
+      </footer>
     </div>
-  </main>
+  </div>
 
-  <!-- SECTION: WHAT IS -->
-  <section id="que-es">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">LLEGAR LEJOS JUNTOS</div>
-        <h2>Tu dinero, tu comunidad, tu control</h2>
-        <p class="lead">
-          Tanda+ es una app mexicana que digitaliza las tandas tradicionales y te permite comprar productos
-          a plazos sin intereses. Olvídate de libretas, grupos de WhatsApp y desconfianza:
-          aquí todo queda registrado, verificado y seguro.
-        </p>
-      </div>
+  <!-- ✅ Sitio normal -->
+  <div id="siteRoot">
 
-      <div class="grid-2">
-        <div class="feature">
-          <div class="icon">👥</div>
-          <h3>Tandas digitales</h3>
-          <p>Crea y organiza tandas con tu círculo. Registro automático de pagos, recordatorios y seguimiento en tiempo real.</p>
-        </div>
+    <!-- NAV -->
+    <header class="nav">
+      <div class="container">
+        <div class="nav-inner">
+          <a class="brand" href="#inicio" aria-label="Ir al inicio">
+            <img src="assets/logo-tanda-mas.png" alt="Logo Tanda Más" onerror="this.style.display='none'">
+            <span class="brand-sub">(Tanda Más)</span>
+          </a>
 
-        <div class="feature">
-          <div class="icon">📦</div>
-          <h3>Tanda+ Tienda (Próximamente)</h3>
-          <p>Compra TVs, celulares, laptops y más a plazos sin intereses. Paga poco a poco y recibe tu producto al completar. O paga en grupo y reciban un producto en cada plazo.</p>
-        </div>
+          <nav class="nav-links" aria-label="Navegación principal">
+            <a href="#que-es">Qué es</a>
+            <a href="#como-funciona">Cómo funciona</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#precios">Sistema</a>
+            <a href="#faq">FAQs</a>
+            <a href="#contacto">Contacto</a>
+          </nav>
 
-        <div class="feature">
-          <div class="icon green">🔒</div>
-          <h3>Seguridad verificada</h3>
-          <p>Verificación de identidad, pagos seguros (OXXO, SPEI, tarjeta) y registro inmutable de transacciones.</p>
-        </div>
-
-        <div class="feature">
-          <div class="icon">📱</div>
-          <h3>Todo en tu celular</h3>
-          <p>Sin papeleo, sin efectivo perdido, sin excusas. Administra tus tandas y tus compras desde cualquier lugar.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION: HOW IT WORKS -->
-  <section id="como-funciona">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">CÓMO FUNCIONA</div>
-        <h2>Dos formas de ahorrar (y ambas son simples)</h2>
-        <p class="lead">Tandas tradicionales con trazabilidad digital, o compras a plazos sin intereses dentro de la Tienda.</p>
-      </div>
-
-      <div class="split">
-        <div class="panel">
-          <h3 style="margin:0 0 10px; letter-spacing:-.02em;">Para tandas tradicionales</h3>
-          <ol class="muted" style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:10px;">
-            <li><b>Crea tu tanda:</b> monto, participantes y frecuencia (semanal/quincenal/mensual).</li>
-            <li><b>Invita a tu círculo:</b> comparte el código por WhatsApp. Solo personas verificadas se unen.</li>
-            <li><b>Todos pagan:</b> OXXO, SPEI o tarjeta desde la app. Todo queda registrado.</li>
-            <li><b>Turnos automáticos:</b> el sistema asigna y entrega el bote puntualmente. Transparencia total.</li>
-          </ol>
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <span class="pill"><span class="dot" style="animation:none"></span>Recordatorios automáticos</span>
-            <span class="pill" style="background:rgba(102,126,234,.12); border-color:rgba(102,126,234,.18); color:#3730A3;">
-              Registro inmutable
-            </span>
-          </div>
-        </div>
-
-        <div class="panel">
-          <h3 style="margin:0 0 10px; letter-spacing:-.02em;">Para Tanda+ Tienda (Próximamente)</h3>
-          <ol class="muted" style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:10px;">
-            <li><b>Elige tu producto:</b> electrónicos, electrodomésticos y más.</li>
-            <li><b>Selecciona tu plan:</b> Individual a meses. Sin intereses. Ó colectivo a plazos personalizados.</li>
-            <li><b>Paga poco a poco:</b> pagos mensuales desde la app. Te recordamos cada fecha.</li>
-            <li><b>Recibe en tu casa:</b> al completar pagos, enviamos a domicilio. ¡Gratis!</li>
-          </ol>
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <span class="pill"><span class="dot" style="animation:none"></span>Sin buró</span>
-            <span class="pill" style="background:rgba(245,158,11,.14); border-color:rgba(245,158,11,.20); color:#92400E;">
-              Envío gratis al completar
-            </span>
+          <div class="nav-cta">
+            <a class="btn btn-primary" href="#descargar">Descargar App</a>
           </div>
         </div>
       </div>
+    </header>
 
-      <div style="margin-top:22px" class="media" aria-label="Ilustración de comunidad y ahorro">
-        <img
-          src="assets/ilustracion-comunidad-ahorro.png"
-          alt="Ilustración: comunidad + transparencia = ahorro que avanza"
-          loading="lazy"
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION: SERVICES -->
-  <section id="servicios">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">SERVICIOS</div>
-        <h2>Elige cómo usar Tanda+ (Tanda Más)</h2>
-        <p class="lead">Tanda personalizadas, organiza gratis 1 tanda a la vez, paga sólo $39 MXN por cada tanda extra sin importar montos, o la Tienda a plazos sin intereses. Lo que necesites, cuando lo necesites.</p>
-      </div>
-
-      <div class="grid-3">
-        <div class="feature">
-          <div class="icon">🆓</div>
-          <h3>Tanda gratis</h3>
-          <p>Organiza una tanda digital o únete hasta a 5 tandas por código de invitación. Transferencias SPEI sin costo.</p>
-          <ul class="muted" style="margin:12px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:8px;">
-            <li>Recordatorios automáticos</li>
-            <li>Registro de pagos</li>
-            <li>Turnos aleatorios o manuales</li>
-          </ul>
-        </div>
-
-        <div class="feature" style="border-color:rgba(102,126,234,.35)">
-          <div class="icon">🚀</div>
-          <h3>Tanda extra</h3>
-          <p>Para organizadoras frecuentes: crea más tandas por $39 c/u.</p>
-          <ul class="muted" style="margin:12px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:8px;">
-            <li>Hasta $10,000 por turno, por participante</li>
-            <li>Pago con tarjeta de crédito o deposito en oxxo </li>
-            <li>Comunicación con tu grupo de tanda</li>
-          </ul>
-        </div>
-
-        <div class="feature">
-          <div class="icon">📦</div>
-          <h3>Tanda+ Tienda (Próximamente)</h3>
-          <p>Compra a plazos sin intereses y recibe al completar pagos. O compra en grupo y reciban 1 producto por turno. Envío gratis y garantía incluida.</p>
-          <ul class="muted" style="margin:12px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:8px;">
-            <li>TVs, celulares, laptops</li>
-            <li>Plazos 3, 6, 10, 12 meses ó plazos personalizados en tanda colectiva</li>
-            <li>Sin buró de crédito</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION: TRUST -->
-  <section id="precios">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">SISTEMA Y CONFIANZA</div>
-        <h2>Transparente desde el inicio</h2>
-        <p class="lead">Conoce cómo Tanda+ protege a la comunidad y premia a quienes cumplen.</p>
-      </div>
-
-      <div class="trust-grid">
-        <div class="panel">
-          <h3 style="margin:0 0 10px; letter-spacing:-.02em;">Sistema de Confianza Tanda+</h3>
-          <p class="muted" style="margin:0;">
-            Cada usuario tiene un <b>puntaje de confianza</b> basado en su historial:
-            <b>tandas completadas</b>, <b>pagos a tiempo</b> y <b>sin cancelaciones</b>.
-            Además, colecciona <b>cartas de Lotería Mexicana</b> como recompensas por buen comportamiento.
-            <b>Más cartas + mejor historial = más confianza</b> en la comunidad.
-          </p>
-
-          <ul class="trust-bullets">
-            <li><b>Score visible:</b> los grupos ven una señal clara de confiabilidad antes de unirse.</li>
-            <li><b>Recompensas:</b> cartas coleccionables que muestran constancia y buen historial.</li>
-            <li><b>Mejores beneficios:</b> mayor confianza desbloquea mejores límites y acceso a tandas.</li>
-          </ul>
-
-          <div class="trust-badge-row">
-            <span class="pill" style="background:rgba(102,126,234,.12); border-color:rgba(102,126,234,.18); color:#3730A3;">Score de confianza</span>
-            <span class="pill" style="background:rgba(245,158,11,.14); border-color:rgba(245,158,11,.20); color:#92400E;">Cartas Lotería MX</span>
-            <span class="pill"><span class="dot" style="animation:none"></span>Pagos puntuales</span>
-          </div>
-        </div>
-
-        <!-- Image space -->
-        <div class="media" aria-label="Ejemplo del sistema de confianza">
-          <img
-            src="assets/ejemplo-sistema-confianza.png"
-            alt="Ejemplo visual: puntaje de confianza y cartas de lotería obtenidas"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION: TESTIMONIALS -->
-  <section id="testimonios">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">OPINIONES DIGITALES</div>
-        <h2>Soluciones reales</h2>
-        <p class="lead">.</p>
-      </div>
-
-      <div class="grid-3">
-        <div class="quote">
-          <div class="stars">★★★★★</div>
-          <h4>“La mejor parte es que todo queda registrado”</h4>
-          <p>Antes era un caos con WhatsApp. Ahora cada pago queda claro y puedo organizar mejor.</p>
-          <div class="who">— Laura G.</div>
-        </div>
-        <div class="quote">
-          <div class="stars">★★★★★</div>
-          <h4>“Pagos automáticos = tranquilidad”</h4>
-          <p>Ya no tengo que perseguir gente. Los recordatorios y el historial ayudan mucho.</p>
-          <div class="who">— José A.</div>
-        </div>
-        <div class="quote">
-          <div class="stars">★★★★★</div>
-          <h4>“Espero que la gente que organiza tandas la use”</h4>
-          <p>Es muy útil, se las voy a recomendar a mis conocidos</p>
-          <div class="who">— Patricia M.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">PREGUNTAS FRECUENTES</div>
-        <h2>Resolvemos tus dudas</h2>
-        <p class="lead">Tandas, Tienda y pagos. Todo lo esencial antes de descargar.</p>
-      </div>
-
-      <div class="faq" role="region" aria-label="Preguntas frecuentes">
-        <details>
-          <summary>¿Qué es una tanda? <span class="chev">⌄</span></summary>
-          <p>Una tanda es un sistema de ahorro colectivo: un grupo aporta una cantidad fija periódicamente y cada periodo una persona recibe el total acumulado (el “bote”).</p>
-        </details>
-
-        <details>
-          <summary>¿Es seguro usar Tanda+? <span class="chev">⌄</span></summary>
-          <p>Sí. Hay proceso de verificación de usuarios, los pagos se procesan con Conekta y cada transacción queda registrada.</p>
-        </details>
-
-        <details>
-          <summary>¿Qué pasa si alguien no paga? <span class="chev">⌄</span></summary>
-          <p>El organizador puede enviar recordatorios automáticos. Si un participante falla repetidamente, su reputación se ve afectada y puede ser excluido de futuras tandas.</p>
-        </details>
-
-        <details>
-          <summary>¿Cobran intereses en la Tienda? <span class="chev">⌄</span></summary>
-          <p>No. El precio que ves es el precio que pagas. Sin intereses ni cargos ocultos.</p>
-        </details>
-
-        <details>
-          <summary>¿Cómo pago? <span class="chev">⌄</span></summary>
-          <p>Puedes pagar en OXXO (efectivo), por transferencia SPEI, o con tarjeta de crédito/débito desde la app.</p>
-        </details>
-
-        <details>
-          <summary>¿Puedo pagar adelantado? <span class="chev">⌄</span></summary>
-          <p>Sí. Puedes adelantar pagos o liquidar el total en cualquier momento sin penalización.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA band -->
-  <section aria-label="Descarga la app">
-    <div class="container">
-      <div class="cta">
-        <div class="cta-grid">
+    <!-- HERO -->
+    <main id="inicio" class="hero">
+      <div class="container">
+        <div class="hero-grid">
           <div>
-            <h3>Ahorra más, logra más</h3>
-            <p>Descarga la app Tanda+ ahora y organiza tu próxima tanda (o compra a plazos sin intereses) en minutos.</p>
-            <div class="store-badges">
+            <span class="pill"><span class="dot"></span>Disponible en México</span>
+
+            <h1>La nueva satisfacción de ahorrar en comunidad</h1>
+            <p class="hero-sub">
+              Organiza tandas digitales con tu familia y amigos, o compra productos a plazos sin intereses.
+              Todo en una sola app.
+            </p>
+
+            <div class="store-badges" id="descargar">
               <a class="badge-store" href="#" aria-label="Descargar en App Store">
                 <span></span>
                 <span><small>Descargar en</small>App Store</span>
@@ -915,122 +701,425 @@
                 <span><small>Disponible en</small>Google Play</span>
               </a>
             </div>
+
+            <div class="hero-ctas">
+              <a class="btn btn-white" href="#como-funciona">Ver cómo funciona</a>
+              <a class="btn btn-outline" style="border-color:rgba(255,255,255,.35); color:#fff;" href="#precios">Ver sistema</a>
+            </div>
+
+            <p class="hero-note">*Términos y tarifas sujetos a cambios. Pagos procesados de forma segura.</p>
           </div>
-          <div class="panel" style="background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.18); color:#fff;">
-            <h4 style="margin:0 0 10px;">Métodos de pago</h4>
-            <p style="margin:0; color:rgba(255,255,255,.84)">
-              🏪 OXXO &nbsp;&nbsp; 🏦 SPEI &nbsp;&nbsp; 💳 Tarjeta<br/>
-              <span style="opacity:.82"></span>
+
+          <!-- Parallax mock -->
+          <div class="mock" id="mockParallax" aria-label="Mockup de la app">
+            <div class="mock-glare" id="mockGlare" aria-hidden="true"></div>
+            <div class="mock-inner" id="mockInner">
+              <img
+                src="assets/mock-viaje.png"
+                alt="Vista de Tanda+: resumen de tanda, control de pagos, progreso del ciclo y turno actual"
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- SECTION: WHAT IS -->
+    <section id="que-es">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">LLEGAR LEJOS JUNTOS</div>
+          <h2>Tu dinero, tu comunidad, tu control</h2>
+          <p class="lead">
+            Tanda+ es una app mexicana que digitaliza las tandas tradicionales y te permite comprar productos
+            a plazos sin intereses. Olvídate de libretas, grupos de WhatsApp y desconfianza:
+            aquí todo queda registrado, verificado y seguro.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="feature">
+            <div class="icon">👥</div>
+            <h3>Tandas digitales</h3>
+            <p>Crea y organiza tandas con tu círculo. Registro automático de pagos, recordatorios y seguimiento en tiempo real.</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">📦</div>
+            <h3>Tanda+ Tienda (Próximamente)</h3>
+            <p>Compra TVs, celulares, laptops y más a plazos sin intereses. Paga poco a poco y recibe tu producto al completar. O paga en grupo y reciban un producto en cada plazo.</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon green">🔒</div>
+            <h3>Seguridad verificada</h3>
+            <p>Verificación de identidad, pagos seguros (OXXO, SPEI, tarjeta) y registro inmutable de transacciones.</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">📱</div>
+            <h3>Todo en tu celular</h3>
+            <p>Sin papeleo, sin efectivo perdido, sin excusas. Administra tus tandas y tus compras desde cualquier lugar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: HOW IT WORKS -->
+    <section id="como-funciona">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">CÓMO FUNCIONA</div>
+          <h2>Dos formas de ahorrar (y ambas son simples)</h2>
+          <p class="lead">Tandas tradicionales con trazabilidad digital, o compras a plazos sin intereses dentro de la Tienda.</p>
+        </div>
+
+        <div class="split">
+          <div class="panel">
+            <h3 style="margin:0 0 10px; letter-spacing:-.02em;">Para tandas tradicionales</h3>
+            <ol class="muted" style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:10px;">
+              <li><b>Crea tu tanda:</b> monto, participantes y frecuencia (semanal/quincenal/mensual).</li>
+              <li><b>Invita a tu círculo:</b> comparte el código por WhatsApp. Solo personas verificadas se unen.</li>
+              <li><b>Todos pagan:</b> OXXO, SPEI o tarjeta desde la app. Todo queda registrado.</li>
+              <li><b>Turnos automáticos:</b> el sistema asigna y entrega el bote puntualmente. Transparencia total.</li>
+            </ol>
+            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+              <span class="pill"><span class="dot" style="animation:none"></span>Recordatorios automáticos</span>
+              <span class="pill" style="background:rgba(102,126,234,.12); border-color:rgba(102,126,234,.18); color:#3730A3;">
+                Registro inmutable
+              </span>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3 style="margin:0 0 10px; letter-spacing:-.02em;">Para Tanda+ Tienda (Próximamente)</h3>
+            <ol class="muted" style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:10px;">
+              <li><b>Elige tu producto:</b> electrónicos, electrodomésticos y más.</li>
+              <li><b>Selecciona tu plan:</b> Individual a meses. Sin intereses. Ó colectivo a plazos personalizados.</li>
+              <li><b>Paga poco a poco:</b> pagos mensuales desde la app. Te recordamos cada fecha.</li>
+              <li><b>Recibe en tu casa:</b> al completar pagos, enviamos a domicilio. ¡Gratis!</li>
+            </ol>
+            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+              <span class="pill"><span class="dot" style="animation:none"></span>Sin buró</span>
+              <span class="pill" style="background:rgba(245,158,11,.14); border-color:rgba(245,158,11,.20); color:#92400E;">
+                Envío gratis al completar
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:22px" class="media" aria-label="Ilustración de comunidad y ahorro">
+          <img
+            src="assets/ilustracion-comunidad-ahorro.png"
+            alt="Ilustración: comunidad + transparencia = ahorro que avanza"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: SERVICES -->
+    <section id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">SERVICIOS</div>
+          <h2>Elige cómo usar Tanda+ (Tanda Más)</h2>
+          <p class="lead">Tanda personalizadas, organiza gratis 1 tanda a la vez, paga sólo $39 MXN por cada tanda extra sin importar montos, o la Tienda a plazos sin intereses. Lo que necesites, cuando lo necesites.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="feature">
+            <div class="icon">🆓</div>
+            <h3>Tanda gratis</h3>
+            <p>Organiza una tanda digital o únete hasta a 5 tandas por código de invitación. Transferencias SPEI sin costo.</p>
+            <ul class="muted" style="margin:12px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:8px;">
+              <li>Recordatorios automáticos</li>
+              <li>Registro de pagos</li>
+              <li>Turnos aleatorios o manuales</li>
+            </ul>
+          </div>
+
+          <div class="feature" style="border-color:rgba(102,126,234,.35)">
+            <div class="icon">🚀</div>
+            <h3>Tanda extra</h3>
+            <p>Para organizadoras frecuentes: crea más tandas por $39 c/u.</p>
+            <ul class="muted" style="margin:12px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:8px;">
+              <li>Hasta $10,000 por turno, por participante</li>
+              <li>Pago con tarjeta de crédito o deposito en oxxo </li>
+              <li>Comunicación con tu grupo de tanda</li>
+            </ul>
+          </div>
+
+          <div class="feature">
+            <div class="icon">📦</div>
+            <h3>Tanda+ Tienda (Próximamente)</h3>
+            <p>Compra a plazos sin intereses y recibe al completar pagos. O compra en grupo y reciban 1 producto por turno. Envío gratis y garantía incluida.</p>
+            <ul class="muted" style="margin:12px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:8px;">
+              <li>TVs, celulares, laptops</li>
+              <li>Plazos 3, 6, 10, 12 meses ó plazos personalizados en tanda colectiva</li>
+              <li>Sin buró de crédito</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: TRUST -->
+    <section id="precios">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">SISTEMA Y CONFIANZA</div>
+          <h2>Transparente desde el inicio</h2>
+          <p class="lead">Conoce cómo Tanda+ protege a la comunidad y premia a quienes cumplen.</p>
+        </div>
+
+        <div class="trust-grid">
+          <div class="panel">
+            <h3 style="margin:0 0 10px; letter-spacing:-.02em;">Sistema de Confianza Tanda+</h3>
+            <p class="muted" style="margin:0;">
+              Cada usuario tiene un <b>puntaje de confianza</b> basado en su historial:
+              <b>tandas completadas</b>, <b>pagos a tiempo</b> y <b>sin cancelaciones</b>.
+              Además, colecciona <b>cartas de Lotería Mexicana</b> como recompensas por buen comportamiento.
+              <b>Más cartas + mejor historial = más confianza</b> en la comunidad.
+            </p>
+
+            <ul class="trust-bullets">
+              <li><b>Score visible:</b> los grupos ven una señal clara de confiabilidad antes de unirse.</li>
+              <li><b>Recompensas:</b> cartas coleccionables que muestran constancia y buen historial.</li>
+              <li><b>Mejores beneficios:</b> mayor confianza desbloquea mejores límites y acceso a tandas.</li>
+            </ul>
+
+            <div class="trust-badge-row">
+              <span class="pill" style="background:rgba(102,126,234,.12); border-color:rgba(102,126,234,.18); color:#3730A3;">Score de confianza</span>
+              <span class="pill" style="background:rgba(245,158,11,.14); border-color:rgba(245,158,11,.20); color:#92400E;">Cartas Lotería MX</span>
+              <span class="pill"><span class="dot" style="animation:none"></span>Pagos puntuales</span>
+            </div>
+          </div>
+
+          <!-- Image space -->
+          <div class="media" aria-label="Ejemplo del sistema de confianza">
+            <img
+              src="assets/ejemplo-sistema-confianza.png"
+              alt="Ejemplo visual: puntaje de confianza y cartas de lotería obtenidas"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: TESTIMONIALS -->
+    <section id="testimonios">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">OPINIONES DIGITALES</div>
+          <h2>Soluciones reales</h2>
+          <p class="lead">.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="quote">
+            <div class="stars">★★★★★</div>
+            <h4>“La mejor parte es que todo queda registrado”</h4>
+            <p>Antes era un caos con WhatsApp. Ahora cada pago queda claro y puedo organizar mejor.</p>
+            <div class="who">— Laura G.</div>
+          </div>
+          <div class="quote">
+            <div class="stars">★★★★★</div>
+            <h4>“Pagos automáticos = tranquilidad”</h4>
+            <p>Ya no tengo que perseguir gente. Los recordatorios y el historial ayudan mucho.</p>
+            <div class="who">— José A.</div>
+          </div>
+          <div class="quote">
+            <div class="stars">★★★★★</div>
+            <h4>“Espero que la gente que organiza tandas la use”</h4>
+            <p>Es muy útil, se las voy a recomendar a mis conocidos</p>
+            <div class="who">— Patricia M.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">PREGUNTAS FRECUENTES</div>
+          <h2>Resolvemos tus dudas</h2>
+          <p class="lead">Tandas, Tienda y pagos. Todo lo esencial antes de descargar.</p>
+        </div>
+
+        <div class="faq" role="region" aria-label="Preguntas frecuentes">
+          <details>
+            <summary>¿Qué es una tanda? <span class="chev">⌄</span></summary>
+            <p>Una tanda es un sistema de ahorro colectivo: un grupo aporta una cantidad fija periódicamente y cada periodo una persona recibe el total acumulado (el “bote”).</p>
+          </details>
+
+          <details>
+            <summary>¿Es seguro usar Tanda+? <span class="chev">⌄</span></summary>
+            <p>Sí. Hay proceso de verificación de usuarios, los pagos se procesan con Conekta y cada transacción queda registrada.</p>
+          </details>
+
+          <details>
+            <summary>¿Qué pasa si alguien no paga? <span class="chev">⌄</span></summary>
+            <p>El organizador puede enviar recordatorios automáticos. Si un participante falla repetidamente, su reputación se ve afectada y puede ser excluido de futuras tandas.</p>
+          </details>
+
+          <details>
+            <summary>¿Cobran intereses en la Tienda? <span class="chev">⌄</span></summary>
+            <p>No. El precio que ves es el precio que pagas. Sin intereses ni cargos ocultos.</p>
+          </details>
+
+          <details>
+            <summary>¿Cómo pago? <span class="chev">⌄</span></summary>
+            <p>Puedes pagar en OXXO (efectivo), por transferencia SPEI, o con tarjeta de crédito/débito desde la app.</p>
+          </details>
+
+          <details>
+            <summary>¿Puedo pagar adelantado? <span class="chev">⌄</span></summary>
+            <p>Sí. Puedes adelantar pagos o liquidar el total en cualquier momento sin penalización.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA band -->
+    <section aria-label="Descarga la app">
+      <div class="container">
+        <div class="cta">
+          <div class="cta-grid">
+            <div>
+              <h3>Ahorra más, logra más</h3>
+              <p>Descarga la app Tanda+ ahora y organiza tu próxima tanda (o compra a plazos sin intereses) en minutos.</p>
+              <div class="store-badges">
+                <a class="badge-store" href="#" aria-label="Descargar en App Store">
+                  <span></span>
+                  <span><small>Descargar en</small>App Store</span>
+                </a>
+                <a class="badge-store" href="#" aria-label="Descargar en Google Play">
+                  <span>▶</span>
+                  <span><small>Disponible en</small>Google Play</span>
+                </a>
+              </div>
+            </div>
+            <div class="panel" style="background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.18); color:#fff;">
+              <h4 style="margin:0 0 10px;">Métodos de pago</h4>
+              <p style="margin:0; color:rgba(255,255,255,.84)">
+                🏪 OXXO &nbsp;&nbsp; 🏦 SPEI &nbsp;&nbsp; 💳 Tarjeta<br/>
+                <span style="opacity:.82"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:14px; font-size:13px;">*Términos y tarifas sujetos a cambios.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contacto">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">CONTACTO</div>
+          <h2>¿Necesitas ayuda?</h2>
+          <p class="lead">Soporte de lunes a viernes, 9:00 AM – 6:00 PM (Hora CDMX).</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel">
+            <h3 style="margin:0 0 10px;">Soporte</h3>
+            <p class="muted" style="margin:0 0 12px;">
+              Email: <a href="mailto:equipo@tandamas.mx"><b>equipo@tandamas.mx</b></a><br/>
+              Ubicación: Oaxaca de Juárez, Oaxaca, México
+            </p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn btn-primary" href="mailto:equipo@tandamas.mx">Enviar email</a>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3 style="margin:0 0 10px;">Redes</h3>
+            <p class="muted" style="margin:0 0 12px;">
+              Instagram: <a href="https://www.instagram.com/tandamas.mx/"><b>@tandamas.mx</b></a><br/>
+              Facebook: <a href="https://www.facebook.com/TANDAMASAPP"><b>/tandamasapp</b></a><br/>
+              TikTok: <a href="https://www.tiktok.com/@tandamasapp"><b>@tandamasapp</b></a>
+            </p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn btn-outline" href="https://www.instagram.com/tandamas.mx/">Instagram</a>
+              <a class="btn btn-outline" href="https://www.tiktok.com/@tandamasapp">TikTok</a>
+              <a class="btn btn-outline" href="https://www.facebook.com/TANDAMASAPP">Facebook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" aria-label="Footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <p class="footer-title">Tanda+ (Tanda Más)</p>
+            <p style="margin:0; color:rgba(255,255,255,.72)">
+              Pagos procesados de forma segura.<br/>
+              Tanda+ actúa como intermediario tecnológico y no es institución financiera.
             </p>
           </div>
-        </div>
-      </div>
-      <p class="muted" style="margin-top:14px; font-size:13px;">*Términos y tarifas sujetos a cambios.</p>
-    </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contacto">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">CONTACTO</div>
-        <h2>¿Necesitas ayuda?</h2>
-        <p class="lead">Soporte de lunes a viernes, 9:00 AM – 6:00 PM (Hora CDMX).</p>
-      </div>
+          <div>
+            <p class="footer-title">Útiles</p>
+            <ul>
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#servicios">Servicios</a></li>
+              <li><a href="#precios">Sistema</a></li>
+              <li><a href="#faq">FAQs</a></li>
+            </ul>
+          </div>
 
-      <div class="grid-2">
-        <div class="panel">
-          <h3 style="margin:0 0 10px;">Soporte</h3>
-          <p class="muted" style="margin:0 0 12px;">
-            Email: <a href="mailto:equipo@tandamas.mx"><b>equipo@tandamas.mx</b></a><br/>
-            Ubicación: Oaxaca de Juárez, Oaxaca, México
-          </p>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-primary" href="mailto:equipo@tandamas.mx">Enviar email</a>
+          <div>
+            <p class="footer-title">Legal</p>
+            <ul>
+              <li><a href="#" data-legal="terms">Términos y condiciones</a></li>
+
+              <!-- ✅ ÚNICO CAMBIO: texto + URL dedicada -->
+              <li><a href="/privacy-policy">Aviso de privacidad / Privacy Policy</a></li>
+
+              <li><a href="#" data-legal="returns">Política de devoluciones</a></li>
+              <li><a href="#" data-legal="shipping">Política de envíos</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="footer-title">Contacto</p>
+            <ul>
+              <li><a href="mailto:equipo@tandamas.mx">equipo@tandamas.mx</a></li>
+              <li><a href="#contacto">Oaxaca, MX</a></li>
+            </ul>
           </div>
         </div>
 
-        <div class="panel">
-          <h3 style="margin:0 0 10px;">Redes</h3>
-          <p class="muted" style="margin:0 0 12px;">
-            Instagram: <a href="https://www.instagram.com/tandamas.mx/"><b>@tandamas.mx</b></a><br/>
-            Facebook: <a href="https://www.facebook.com/TANDAMASAPP"><b>/tandamasapp</b></a><br/>
-            TikTok: <a href="https://www.tiktok.com/@tandamasapp"><b>@tandamasapp</b></a>
-          </p>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-outline" href="https://www.instagram.com/tandamas.mx/">Instagram</a>
-            <a class="btn btn-outline" href="https://www.tiktok.com/@tandamasapp">TikTok</a>
-            <a class="btn btn-outline" href="https://www.facebook.com/TANDAMASAPP">Facebook</a>
+        <div class="fine">
+          <div>© 2026 Tanda+. Todos los derechos reservados.</div>
+          <div class="muted">*Términos y tarifas sujetos a cambios.</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- LEGAL MODAL -->
+    <div class="legal-overlay" id="legalOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Documento legal">
+      <div class="legal-modal" role="document">
+        <div class="legal-top">
+          <div>
+            <h3 id="legalTitle">Documento</h3>
+            <div class="legal-meta" id="legalMeta"></div>
           </div>
+          <button class="legal-close" id="legalClose" type="button" aria-label="Cerrar">Cerrar ✕</button>
         </div>
+        <div class="legal-body" id="legalContent"></div>
       </div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="footer" aria-label="Footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <p class="footer-title">Tanda+ (Tanda Más)</p>
-          <p style="margin:0; color:rgba(255,255,255,.72)">
-            Pagos procesados de forma segura.<br/>
-            Tanda+ actúa como intermediario tecnológico y no es institución financiera.
-          </p>
-        </div>
-
-        <div>
-          <p class="footer-title">Útiles</p>
-          <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#precios">Sistema</a></li>
-            <li><a href="#faq">FAQs</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <p class="footer-title">Legal</p>
-          <ul>
-            <li><a href="#" data-legal="terms">Términos y condiciones</a></li>
-
-            <!-- ✅ CAMBIO (Opción A): URL pública -->
-            <li><a href="/privacy-policy.html">Aviso de privacidad / Privacy Policy</a></li>
-
-            <li><a href="#" data-legal="returns">Política de devoluciones</a></li>
-            <li><a href="#" data-legal="shipping">Política de envíos</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <p class="footer-title">Contacto</p>
-          <ul>
-            <li><a href="mailto:equipo@tandamas.mx">equipo@tandamas.mx</a></li>
-            <li><a href="#contacto">Oaxaca, MX</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="fine">
-        <div>© 2026 Tanda+. Todos los derechos reservados.</div>
-        <div class="muted">*Términos y tarifas sujetos a cambios.</div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- LEGAL MODAL -->
-  <div class="legal-overlay" id="legalOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Documento legal">
-    <div class="legal-modal" role="document">
-      <div class="legal-top">
-        <div>
-          <h3 id="legalTitle">Documento</h3>
-          <div class="legal-meta" id="legalMeta"></div>
-        </div>
-        <button class="legal-close" id="legalClose" type="button" aria-label="Cerrar">Cerrar ✕</button>
-      </div>
-      <div class="legal-body" id="legalContent"></div>
-    </div>
-  </div>
+  </div><!-- /siteRoot -->
 
   <script>
     // Close other FAQ items when one opens
@@ -1045,8 +1134,6 @@
 
     // -----------------------
     // HERO MOCK PARALLAX (MOUSE + TOUCH, FULL SCREEN)
-    // - uses pointer position across entire screen width/height
-    // - touch works (drag finger) while still allowing vertical scroll
     // -----------------------
     (function initMockParallaxFullScreen(){
       const inner = document.getElementById('mockInner');
@@ -1136,7 +1223,686 @@
     const contentEl = document.getElementById('legalContent');
     let lastFocusEl = null;
 
-    const FULL_TERMS_HTML = `... (SIN CAMBIOS: TU MISMO FULL_TERMS_HTML AQUÍ) ...`;
+    const FULL_TERMS_HTML = `
+      <h1>TÉRMINOS Y CONDICIONES DE USO DE TANDA+</h1>
+      <p><strong>Versión:</strong> 1.0<br><strong>Última actualización:</strong> Febrero 2026</p>
+      <div class="legal-divider"></div>
+
+      <h2>IMPORTANTE: LEA CUIDADOSAMENTE</h2>
+      <p>Al crear una cuenta, acceder o utilizar la aplicación Tanda+, usted acepta quedar legalmente obligado por estos Términos y Condiciones. Si no está de acuerdo con alguna parte de estos términos, no utilice la aplicación.</p>
+
+      <div class="legal-divider"></div>
+      <h2>1. DEFINICIONES</h2>
+      <p>Para efectos de estos Términos y Condiciones:</p>
+      <ul>
+        <li><strong>"Tanda+"</strong> o <strong>"la Aplicación"</strong>: Se refiere a la aplicación móvil Tanda+ y todos sus servicios.</li>
+        <li><strong>"Usuario"</strong>: Toda persona que descargue, acceda o utilice la Aplicación.</li>
+        <li><strong>"Tanda"</strong>: Sistema de ahorro colectivo donde un grupo de personas aporta periódicamente una cantidad fija y cada periodo un participante recibe el total acumulado.</li>
+        <li><strong>"Organizador"</strong>: Usuario que crea y administra una tanda.</li>
+        <li><strong>"Participante"</strong>: Usuario que se une a una tanda creada por un Organizador.</li>
+        <li><strong>"Tanda+ Tienda"</strong>: Marketplace de productos que pueden adquirirse mediante pagos a plazos.</li>
+        <li><strong>"Socio Comercial"</strong>: Tienda o proveedor que ofrece productos a través de Tanda+ Tienda.</li>
+        <li><strong>"Bote"</strong>: El monto total acumulado que se entrega al participante en su turno.</li>
+        <li><strong>"Turno"</strong>: El orden en que cada participante recibe el bote.</li>
+        <li><strong>"Crédito Tanda+"</strong>: Saldo a favor del usuario para futuras compras en Tanda+ Tienda.</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>2. NATURALEZA DEL SERVICIO</h2>
+
+      <h3>2.1 Qué es Tanda+</h3>
+      <p>Tanda+ es una <strong>plataforma tecnológica</strong> que facilita:</p>
+      <p>a) La organización y administración de tandas digitales entre usuarios.<br>
+      b) Un marketplace (Tanda+ Tienda) donde usuarios pueden adquirir productos a plazos de Socios Comerciales.</p>
+
+      <h3>2.2 Qué NO es Tanda+</h3>
+      <p>Tanda+ <strong>NO ES</strong>:</p>
+      <ul>
+        <li>Una institución financiera</li>
+        <li>Un banco o caja de ahorro</li>
+        <li>Una entidad que otorga créditos</li>
+        <li>Una casa de empeño</li>
+        <li>Un intermediario financiero regulado</li>
+        <li>Un vendedor directo de productos (actuamos como marketplace)</li>
+      </ul>
+      <p>Tanda+ actúa únicamente como facilitador tecnológico, marketplace y procesador de pagos.</p>
+
+      <div class="legal-divider"></div>
+      <h2>3. REQUISITOS PARA USAR TANDA+</h2>
+      <p>Para utilizar la Aplicación, usted declara y garantiza que:</p>
+      <ul>
+        <li>Es mayor de 18 años de edad</li>
+        <li>Reside legalmente en los Estados Unidos Mexicanos</li>
+        <li>Tiene capacidad legal para celebrar contratos vinculantes</li>
+        <li>Proporcionará información veraz, actual y completa</li>
+        <li>No utilizará la Aplicación para fines ilícitos</li>
+        <li>Cuenta con un dispositivo móvil compatible y acceso a internet</li>
+        <li>Acepta el proceso de verificación de identidad cuando aplique</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>4. REGISTRO Y CUENTA DE USUARIO</h2>
+
+      <h3>4.1 Creación de Cuenta</h3>
+      <p>Para usar Tanda+, debe crear una cuenta proporcionando:</p>
+      <ul>
+        <li>Nombre completo</li>
+        <li>Correo electrónico válido</li>
+        <li>Contraseña segura</li>
+      </ul>
+
+      <h3>4.2 Verificación de Identidad</h3>
+      <p>Tanda+ maneja dos estados de verificación:</p>
+      <p><strong>Usuario No Verificado:</strong></p>
+      <ul>
+        <li>Registro básico con correo electrónico</li>
+        <li>Acceso limitado a funciones de la Aplicación</li>
+      </ul>
+      <p><strong>Usuario Verificado:</strong></p>
+      <ul>
+        <li>Verificación de correo electrónico</li>
+        <li>Verificación de número telefónico</li>
+        <li>Verificación de identidad (INE + selfie)</li>
+        <li>Acceso completo a todas las funciones</li>
+        <li>Mayor confianza en la comunidad</li>
+      </ul>
+      <p>La verificación es necesaria para crear tandas y acceder a Tanda+ Tienda.</p>
+
+      <h3>4.3 Responsabilidad de la Cuenta</h3>
+      <p>Usted es el único responsable de:</p>
+      <ul>
+        <li>Mantener la confidencialidad de sus credenciales</li>
+        <li>Todas las actividades realizadas desde su cuenta</li>
+        <li>Notificar inmediatamente cualquier uso no autorizado</li>
+        <li>Mantener actualizada su información de contacto</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>PARTE I: TANDAS DIGITALES</h2>
+
+      <div class="legal-divider"></div>
+      <h2>5. FUNCIONAMIENTO DE LAS TANDAS</h2>
+
+      <h3>5.1 Descripción</h3>
+      <p>Una tanda en Tanda+ funciona así:</p>
+      <ol>
+        <li>Un Organizador crea la tanda definiendo: monto, número de participantes, frecuencia de pagos y duración.</li>
+        <li>Los Participantes se unen mediante invitación.</li>
+        <li>Cada periodo, todos los Participantes realizan su aportación.</li>
+        <li>El monto total (bote) se entrega al Participante cuyo turno corresponda.</li>
+        <li>El ciclo continúa hasta que todos reciban su turno.</li>
+      </ol>
+
+      <h3>5.2 Ejemplo</h3>
+      <p>Una tanda de $1,000 MXN quincenal con 10 participantes:</p>
+      <ul>
+        <li>Cada participante aporta $1,000 cada quincena</li>
+        <li>Cada quincena, un participante recibe $10,000 (el bote)</li>
+        <li>La tanda dura 10 quincenas (5 meses)</li>
+        <li>Al final, todos habrán aportado $10,000 y recibido $10,000</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>6. OBLIGACIONES DEL ORGANIZADOR</h2>
+      <p>Al crear una tanda, el Organizador se compromete a:</p>
+      <p>6.1 Definir claramente las reglas de la tanda antes de iniciar.<br>
+      6.2 Invitar únicamente a personas que conoce y en quienes confía.<br>
+      6.3 Verificar que todos los participantes comprendan y acepten las reglas.<br>
+      6.4 Administrar la tanda de manera justa y transparente.<br>
+      6.5 Comunicarse oportunamente con los participantes sobre cualquier situación.<br>
+      6.6 No modificar las reglas de la tanda una vez iniciada sin consentimiento unánime.<br>
+      6.7 Gestionar cualquier disputa que surja entre participantes.<br>
+      6.8 No crear tandas con fines fraudulentos o engañosos.</p>
+
+      <div class="legal-divider"></div>
+      <h2>7. OBLIGACIONES DEL PARTICIPANTE</h2>
+      <p>Al unirse a una tanda, el Participante se compromete a:</p>
+      <p>7.1 Realizar todos sus pagos de manera puntual en las fechas establecidas.<br>
+      7.2 Mantener actualizada su información de contacto y método de pago.<br>
+      7.3 Comunicar al Organizador cualquier problema que pueda afectar su cumplimiento.<br>
+      7.4 Aceptar el turno que le sea asignado (manual o aleatoriamente).<br>
+      7.5 Permanecer en la tanda hasta su conclusión, salvo acuerdo con el Organizador.<br>
+      7.6 No participar en más tandas de las que pueda cumplir financieramente.<br>
+      7.7 Actuar de buena fe y con honestidad hacia los demás participantes.</p>
+
+      <div class="legal-divider"></div>
+      <h2>8. ASIGNACIÓN DE TURNOS</h2>
+      <h3>8.1 Métodos de Asignación</h3>
+      <p>Los turnos pueden asignarse mediante:</p>
+      <ul>
+        <li><strong>Asignación manual:</strong> El Organizador define el orden.</li>
+        <li><strong>Asignación aleatoria:</strong> El sistema asigna turnos al azar.</li>
+        <li><strong>Método mixto:</strong> Algunos turnos fijos, otros aleatorios.</li>
+      </ul>
+
+      <h3>8.2 Aceptación del Turno</h3>
+      <p>Una vez asignado su turno, el Participante:</p>
+      <ul>
+        <li>Acepta el turno asignado sin posibilidad de cambio unilateral.</li>
+        <li>Puede solicitar intercambio con otro Participante, sujeto a aprobación del Organizador.</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>9. PAGOS EN TANDAS</h2>
+      <h3>9.1 Métodos de Pago Aceptados</h3>
+      <ul>
+        <li>Pago en OXXO (efectivo)</li>
+        <li>Transferencia SPEI</li>
+        <li>Tarjeta de crédito o débito</li>
+      </ul>
+
+      <h3>9.2 Fechas de Pago</h3>
+      <ul>
+        <li>Los pagos deben realizarse en la fecha establecida por la tanda.</li>
+        <li>Se otorga un periodo de gracia según las reglas de cada tanda.</li>
+        <li>Los pagos atrasados afectan el puntaje de confianza del Participante.</li>
+      </ul>
+
+      <h3>9.3 Comisiones</h3>
+      <p>Se aplica una comisión por transacción procesada. Las comisiones vigentes están disponibles en la Aplicación y pueden actualizarse periódicamente.</p>
+      <p>Las comisiones se deducen automáticamente de cada transacción.</p>
+
+      <div class="legal-divider"></div>
+      <h2>10. INCUMPLIMIENTO EN TANDAS</h2>
+      <h3>10.1 Pagos Atrasados</h3>
+      <p>En caso de pago atrasado:</p>
+      <ul>
+        <li>Se enviarán recordatorios automáticos.</li>
+        <li>El retraso quedará registrado en el historial del usuario.</li>
+        <li>El puntaje de confianza del usuario se verá afectado.</li>
+        <li>El Organizador puede tomar medidas según las reglas de la tanda.</li>
+      </ul>
+
+      <h3>10.2 Falta de Pago Total</h3>
+      <p>Si un Participante no realiza su pago:</p>
+      <ul>
+        <li>El Organizador será notificado inmediatamente.</li>
+        <li>El incumplimiento se registrará permanentemente en el perfil del usuario.</li>
+        <li>El usuario podrá ser excluido de futuras tandas.</li>
+        <li>Tanda+ no cubre ni garantiza los pagos incumplidos.</li>
+      </ul>
+
+      <h3>10.3 Abandono de Tanda</h3>
+      <p>El abandono de una tanda activa:</p>
+      <ul>
+        <li>Queda registrado negativamente en el perfil del usuario.</li>
+        <li>No libera al usuario de sus obligaciones de pago pendientes.</li>
+        <li>Puede resultar en la suspensión o cancelación de la cuenta.</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>11. CANCELACIÓN DE TANDAS</h2>
+      <h3>11.1 Antes de Iniciar</h3>
+      <p>El Organizador puede cancelar la tanda antes de que inicie. Los participantes serán notificados de la cancelación.</p>
+
+      <h3>11.2 Después de Iniciar</h3>
+      <ul>
+        <li>Requiere acuerdo unánime de todos los participantes.</li>
+        <li>Los pagos realizados NO son reembolsables.</li>
+        <li>La distribución de fondos se acordará entre los participantes.</li>
+        <li>Tanda+ no interviene en la distribución de fondos entre participantes.</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>12. SISTEMA DE REPUTACIÓN</h2>
+      <h3>12.1 Puntaje de Confianza</h3>
+      <p>Cada usuario tiene un puntaje de confianza basado en:</p>
+      <ul>
+        <li>Tandas completadas exitosamente</li>
+        <li>Pagos realizados a tiempo</li>
+        <li>Pagos atrasados o rechazados</li>
+        <li>Solicitudes de cancelación</li>
+        <li>Tiempo como usuario activo</li>
+      </ul>
+
+      <h3>12.2 Niveles de Confianza</h3>
+      <ul>
+        <li><strong>Nuevo:</strong> Usuario sin historial</li>
+        <li><strong>En Observación:</strong> Usuario con incumplimientos recientes</li>
+        <li><strong>Confiable:</strong> Usuario con buen historial</li>
+        <li><strong>Estrella:</strong> Usuario con historial excelente</li>
+      </ul>
+
+      <h3>12.3 Cartas de Lotería</h3>
+      <p>Los usuarios pueden ganar cartas coleccionables de Lotería Mexicana como recompensa por:</p>
+      <ul>
+        <li>Completar tandas</li>
+        <li>Mantener racha de pagos puntuales</li>
+        <li>Alcanzar hitos específicos</li>
+      </ul>
+      <p>Las cartas son meramente decorativas y no tienen valor monetario.</p>
+
+      <div class="legal-divider"></div>
+      <h2>PARTE II: TANDA+ TIENDA (MARKETPLACE)</h2>
+
+      <div class="legal-divider"></div>
+      <h2>13. DESCRIPCIÓN DEL SERVICIO</h2>
+      <h3>13.1 Qué es Tanda+ Tienda</h3>
+      <p>Tanda+ Tienda es un <strong>marketplace</strong> que conecta a usuarios con Socios Comerciales (tiendas y proveedores) para la adquisición de productos mediante pagos a plazos.</p>
+
+      <h3>13.2 Rol de Tanda+ como Intermediario</h3>
+      <p>Tanda+ actúa <strong>únicamente como intermediario</strong> entre el Usuario y el Socio Comercial:</p>
+      <ul>
+        <li><strong>Tanda+ facilita:</strong> La plataforma tecnológica, el procesamiento de pagos y la comunicación.</li>
+        <li><strong>El Socio Comercial es responsable de:</strong> El inventario, la calidad del producto, el envío y la garantía.</li>
+      </ul>
+
+      <h3>13.3 Modelo de Apartado</h3>
+      <p>El modelo funciona similar al "apartado" tradicional:</p>
+      <ul>
+        <li>Usted selecciona un producto y un plan de pagos.</li>
+        <li>Realiza pagos periódicos según el plan elegido.</li>
+        <li>Al completar todos los pagos, el Socio Comercial envía el producto a su domicilio.</li>
+        <li>No hay intereses ni cargos adicionales al precio publicado.</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>14. PROCESO DE COMPRA</h2>
+      <h3>14.1 Selección de Producto</h3>
+      <ol>
+        <li>Explore el catálogo de productos disponibles.</li>
+        <li>Seleccione el producto deseado.</li>
+        <li>Elija el plan de pagos (3, 6, 10 o 12 meses según disponibilidad).</li>
+        <li>Confirme la compra realizando el primer pago.</li>
+      </ol>
+
+      <h3>14.2 Pagos</h3>
+      <ul>
+        <li>Los pagos deben realizarse mensualmente en la fecha establecida.</li>
+        <li>Puede pagar mediante OXXO, SPEI o tarjeta.</li>
+        <li>Recibirá recordatorios antes de cada fecha de pago.</li>
+        <li>Puede adelantar pagos o liquidar anticipadamente sin penalización.</li>
+      </ul>
+
+      <h3>14.3 Entrega</h3>
+      <ul>
+        <li>El producto es enviado por el Socio Comercial, no por Tanda+.</li>
+        <li>El envío se realiza dentro de los 10 días hábiles posteriores al último pago.</li>
+        <li>Los tiempos de entrega pueden variar según el Socio Comercial y la ubicación.</li>
+        <li>Debe proporcionar una dirección válida y estar disponible para recibir.</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>15. PRECIOS Y PAGOS</h2>
+      <h3>15.1 Precios</h3>
+      <ul>
+        <li>Todos los precios están expresados en Pesos Mexicanos (MXN).</li>
+        <li>Los precios incluyen IVA.</li>
+        <li>El precio al momento de la compra es el precio final.</li>
+        <li>No se cobran intereses adicionales.</li>
+        <li>Los precios son establecidos por los Socios Comerciales.</li>
+      </ul>
+
+      <h3>15.2 Ejemplo de Plan de Pagos</h3>
+      <p>Producto: Televisor $12,000 MXN</p>
+      <ul>
+        <li>Plan 6 meses: $2,000/mes × 6 = $12,000</li>
+        <li>Plan 10 meses: $1,200/mes × 10 = $12,000</li>
+        <li>Plan 12 meses: $1,000/mes × 12 = $12,000</li>
+      </ul>
+      <p>El precio total es el mismo independientemente del plazo elegido.</p>
+
+      <div class="legal-divider"></div>
+      <h2>16. CANCELACIÓN EN TANDA+ TIENDA</h2>
+
+      <h3>16.1 Política General</h3>
+      <p>Al iniciar una compra en Tanda+ Tienda, usted acepta y reconoce que la relación comercial, el producto, sus condiciones, cumplimiento, cancelaciones, entregas y cualquier obligación derivada son responsabilidad exclusiva del socio comercial que ofrece el producto.</p>
+      <p>Tanda+ no es vendedor, proveedor ni responsable del producto. Tanda+ únicamente funge como una plataforma de gestión, administración y seguimiento de pagos.</p>
+      <p>Al iniciar una compra, usted se compromete a completar todos los pagos del plan seleccionado conforme a las condiciones establecidas por el socio comercial.</p>
+      <p><strong>No existen cancelaciones ni reembolsos.</strong> Los pagos realizados no son reembolsables bajo ninguna circunstancia, decisión que depende exclusivamente del socio comercial.</p>
+
+      <h3>16.2 Opción de Pausa</h3>
+      <p>En caso de enfrentar dificultades temporales para continuar con los pagos:</p>
+      <ul>
+        <li>Puede solicitar una pausa de hasta 2 meses.</li>
+        <li>La pausa no genera costos ni penalizaciones.</li>
+        <li>Solo se permite 1 pausa por producto.</li>
+        <li>Al término de la pausa, debe retomar los pagos normalmente.</li>
+        <li>La autorización de la pausa se realiza conforme a las reglas operativas del socio comercial.</li>
+      </ul>
+      <p>Tanda+ solo gestiona y registra la solicitud, sin asumir responsabilidad alguna sobre su aprobación o efectos.</p>
+
+      <h3>16.3 Opción de Transferencia de Apartado</h3>
+      <p>No es posible cancelar un apartado; sin embargo, puede transferirlo a un tercero, bajo su total responsabilidad.</p>
+      <ul>
+        <li>Otra persona toma su lugar y continúa con los pagos restantes.</li>
+        <li>El acuerdo económico entre ambas partes no involucra a Tanda+.</li>
+        <li>Tanda+ únicamente actualiza el nombre del comprador en el sistema, a solicitud de las partes.</li>
+      </ul>
+      <p><strong>Ejemplo:</strong></p>
+      <p>Usted pagó $3,00 por una TV con precio de $10,000.<br>
+      Un tercero desea quedarse con el producto.<br>
+      Usted acuerda con esa persona la venta de su apartado.<br>
+      El tercero continúa pagando los $7,000 restantes.<br>
+      Tanda+ solo cambia y registra quién recibirá el producto, sin intervenir en el acuerdo entre particulares.</p>
+
+      <h3>16.4 Abandono</h3>
+      <p>Se considera abandono cuando:</p>
+      <ul>
+        <li>Han transcurrido más de 2 meses sin realizar pagos.</li>
+        <li>No se solicitó pausa ni hubo respuesta a comunicaciones.</li>
+      </ul>
+      <p>En caso de abandono:</p>
+      <ul>
+        <li>Se pierde la totalidad de los pagos realizados.</li>
+        <li>El apartado se cancela de forma definitiva.</li>
+        <li>No existe derecho a reclamo ni reembolso.</li>
+      </ul>
+      <p>Estas consecuencias derivan de las políticas del socio comercial, y Tanda+ no asume responsabilidad legal, financiera ni comercial por dichas decisiones.</p>
+
+      <div class="legal-divider"></div>
+      <h2>17. ENTREGA DE PRODUCTOS</h2>
+      <h3>17.1 Responsabilidad del Envío</h3>
+      <ul>
+        <li><strong>El Socio Comercial es responsable del envío</strong>, no Tanda+.</li>
+        <li>Tanda+ facilita la comunicación y el seguimiento, pero no controla la logística.</li>
+      </ul>
+
+      <h3>17.2 Proceso de Envío</h3>
+      <ol>
+        <li>Al completar el último pago, se notifica al Socio Comercial.</li>
+        <li>El Socio Comercial prepara y envía el producto.</li>
+        <li>Recibirá información de rastreo cuando esté disponible.</li>
+        <li>El producto se entrega en la dirección proporcionada.</li>
+      </ol>
+
+      <h3>17.3 Tiempos de Entrega</h3>
+      <p>Los tiempos de entrega varían según el Socio Comercial y la ubicación:</p>
+      <ul>
+        <li>Estimado general: 5-15 días hábiles después del último pago.</li>
+        <li>Los tiempos específicos se informan al momento de la compra.</li>
+      </ul>
+
+      <h3>17.4 Problemas con el Envío</h3>
+      <p>En caso de problemas con el envío (retrasos, extravíos, daños):</p>
+      <ul>
+        <li>Contacte a Tanda+ para facilitar la comunicación con el Socio Comercial.</li>
+        <li>El Socio Comercial es responsable de resolver el problema.</li>
+        <li>Tanda+ hará esfuerzos razonables para mediar, pero no garantiza resultados.</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>18. GARANTÍA DE PRODUCTOS</h2>
+      <h3>18.1 Responsabilidad de la Garantía</h3>
+      <p>La garantía de los productos es responsabilidad exclusiva del <strong>Socio Comercial</strong> y/o del fabricante, no de Tanda+.</p>
+
+      <h3>18.2 Garantía del Fabricante</h3>
+      <p>Todos los productos incluyen la garantía del fabricante según las condiciones de cada marca.</p>
+
+      <h3>18.3 Productos Defectuosos</h3>
+      <p>Si recibe un producto con defectos:</p>
+      <ul>
+        <li>Reporte a Tanda+ dentro de los 7 días siguientes a la recepción.</li>
+        <li>Tanda+ facilitará la comunicación con el Socio Comercial.</li>
+        <li>El Socio Comercial determinará la solución (reemplazo, reparación, etc.).</li>
+      </ul>
+
+      <h3>18.4 Exclusiones</h3>
+      <p>La garantía NO cubre:</p>
+      <ul>
+        <li>Daños por mal uso, negligencia o accidentes.</li>
+        <li>Desgaste normal por uso.</li>
+        <li>Modificaciones no autorizadas.</li>
+        <li>Daños por fenómenos naturales.</li>
+        <li>Daños por instalación incorrecta.</li>
+      </ul>
+
+      <h3>18.5 Limitación de Responsabilidad</h3>
+      <p>Tanda+ <strong>NO ES RESPONSABLE</strong> por:</p>
+      <ul>
+        <li>La calidad de los productos ofrecidos por Socios Comerciales.</li>
+        <li>El cumplimiento de garantías por parte de Socios Comerciales o fabricantes.</li>
+        <li>Defectos de fabricación o diseño.</li>
+        <li>Daños derivados del uso de los productos.</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>PARTE III: DISPOSICIONES GENERALES</h2>
+
+      <div class="legal-divider"></div>
+      <h2>19. PROCESAMIENTO DE PAGOS</h2>
+      <h3>19.1 Procesador de Pagos</h3>
+      <p>Los pagos son procesados a través de plataformas de pago certificadas y seguras.</p>
+
+      <h3>19.2 Seguridad</h3>
+      <ul>
+        <li>Tanda+ no almacena datos completos de tarjetas de crédito o débito.</li>
+        <li>Las transacciones están protegidas con encriptación.</li>
+        <li>Cumplimos con estándares de seguridad de la industria de pagos.</li>
+      </ul>
+
+      <h3>19.3 Comprobantes</h3>
+      <ul>
+        <li>Recibirá confirmación electrónica de cada pago.</li>
+        <li>El historial de pagos está disponible en su perfil de la Aplicación.</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>20. PRIVACIDAD Y DATOS PERSONALES</h2>
+      <h3>20.1 Aviso de Privacidad</h3>
+      <p>El tratamiento de sus datos personales se rige por nuestro Aviso de Privacidad, disponible en la Aplicación y en nuestro sitio web.</p>
+
+      <h3>20.2 Datos que Recopilamos</h3>
+      <ul>
+        <li>Datos de identificación (nombre, INE, fotografía)</li>
+        <li>Datos de contacto (correo electrónico, dirección de envío)</li>
+        <li>Datos transaccionales (historial de pagos)</li>
+        <li>Datos de uso de la Aplicación</li>
+      </ul>
+
+      <h3>20.3 Uso de Datos</h3>
+      <p>Sus datos se utilizan para:</p>
+      <ul>
+        <li>Proporcionar los servicios de la Aplicación</li>
+        <li>Verificar su identidad</li>
+        <li>Procesar pagos</li>
+        <li>Prevenir fraudes</li>
+        <li>Mejorar nuestros servicios</li>
+        <li>Cumplir obligaciones legales</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>21. PROPIEDAD INTELECTUAL</h2>
+      <h3>21.1 Derechos de Tanda+</h3>
+      <p>Todos los derechos sobre la Aplicación, incluyendo:</p>
+      <ul>
+        <li>Código fuente y software</li>
+        <li>Diseño e interfaz</li>
+        <li>Logotipos y marcas</li>
+        <li>Contenido y textos</li>
+        <li>Imágenes de cartas de Lotería</li>
+      </ul>
+      <p>Son propiedad exclusiva de Tanda+ o sus licenciantes.</p>
+
+      <h3>21.2 Licencia de Uso</h3>
+      <p>Se le otorga una licencia limitada, no exclusiva, no transferible y revocable para usar la Aplicación únicamente para fines personales conforme a estos Términos.</p>
+
+      <h3>21.3 Restricciones</h3>
+      <p>Usted NO puede:</p>
+      <ul>
+        <li>Copiar, modificar o distribuir la Aplicación</li>
+        <li>Realizar ingeniería inversa</li>
+        <li>Usar la Aplicación para fines comerciales no autorizados</li>
+        <li>Eliminar avisos de derechos de autor</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>22. CONDUCTA PROHIBIDA</h2>
+      <p>Está estrictamente prohibido usar Tanda+ para:</p>
+      <p>22.1 Cualquier actividad ilegal o fraudulenta.<br>
+      22.2 Lavado de dinero o financiamiento de actividades ilícitas.<br>
+      22.3 Crear cuentas falsas o suplantar identidades.<br>
+      22.4 Crear tandas con intención de defraudar.<br>
+      22.5 Manipular el sistema de reputación.<br>
+      22.6 Acosar, amenazar o dañar a otros usuarios.<br>
+      22.7 Interferir con el funcionamiento de la Aplicación.<br>
+      22.8 Violar estos Términos o cualquier ley aplicable.</p>
+
+      <div class="legal-divider"></div>
+      <h2>23. LIMITACIÓN DE RESPONSABILIDAD</h2>
+      <h3>23.1 Tandas entre Usuarios</h3>
+      <p>Tanda+ <strong>NO ES RESPONSABLE</strong> por:</p>
+      <ul>
+        <li>El incumplimiento de pagos de cualquier participante.</li>
+        <li>Disputas entre organizadores y participantes.</li>
+        <li>Pérdidas económicas derivadas de la participación en tandas.</li>
+        <li>Fraudes cometidos por otros usuarios.</li>
+        <li>La veracidad de la información proporcionada por usuarios.</li>
+      </ul>
+
+      <h3>23.2 Tanda+ Tienda (Marketplace)</h3>
+      <p>Tanda+ actúa como intermediario y <strong>NO ES RESPONSABLE</strong> por:</p>
+      <ul>
+        <li>La calidad, seguridad o legalidad de los productos.</li>
+        <li>La veracidad de las descripciones de productos.</li>
+        <li>Retrasos o problemas en entregas causados por Socios Comerciales.</li>
+        <li>El cumplimiento de garantías por parte de Socios Comerciales.</li>
+        <li>Daños derivados del uso de los productos.</li>
+        <li>Disputas entre usuarios y Socios Comerciales.</li>
+      </ul>
+
+      <h3>23.3 Disponibilidad del Servicio</h3>
+      <p>Tanda+ no garantiza que la Aplicación esté disponible de manera ininterrumpida. Podemos suspender el servicio por mantenimiento, actualizaciones o causas de fuerza mayor.</p>
+
+      <h3>23.4 Límite de Responsabilidad</h3>
+      <p>En la máxima medida permitida por la ley, la responsabilidad total de Tanda+ por cualquier reclamación relacionada con estos Términos no excederá el monto de las comisiones pagadas por el usuario en los últimos 12 meses.</p>
+
+      <div class="legal-divider"></div>
+      <h2>24. INDEMNIZACIÓN</h2>
+      <p>Usted acepta indemnizar, defender y mantener libre de responsabilidad a Tanda+, sus directivos, empleados y agentes, de cualquier reclamación, daño, pérdida o gasto (incluyendo honorarios de abogados) que surja de:</p>
+      <ul>
+        <li>Su uso de la Aplicación</li>
+        <li>Su violación de estos Términos</li>
+        <li>Su violación de derechos de terceros</li>
+        <li>Su participación en tandas</li>
+        <li>Sus compras en Tanda+ Tienda</li>
+        <li>Información falsa proporcionada por usted</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>25. SUSPENSIÓN Y TERMINACIÓN</h2>
+      <h3>25.1 Por el Usuario</h3>
+      <p>Puede dejar de usar la Aplicación en cualquier momento. Para cerrar su cuenta, contacte a soporte. El cierre de cuenta no lo libera de obligaciones pendientes en tandas activas ni cancela compras en curso en Tanda+ Tienda.</p>
+
+      <h3>25.2 Por Tanda+</h3>
+      <p>Podemos suspender o cancelar su cuenta si:</p>
+      <ul>
+        <li>Viola estos Términos</li>
+        <li>Proporciona información falsa</li>
+        <li>Realiza actividades fraudulentas</li>
+        <li>Incumple repetidamente en tandas</li>
+        <li>Por orden de autoridad competente</li>
+        <li>A nuestra discreción razonable</li>
+      </ul>
+
+      <h3>25.3 Efectos de la Terminación</h3>
+      <p>Al terminar su cuenta:</p>
+      <ul>
+        <li>Perderá acceso a la Aplicación</li>
+        <li>No podrá recuperar su historial ni colección de cartas</li>
+        <li>Deberá cumplir obligaciones pendientes</li>
+        <li>El Crédito Tanda+ no utilizado se perderá</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>26. MODIFICACIONES</h2>
+      <h3>26.1 Cambios a los Términos</h3>
+      <p>Tanda+ puede modificar estos Términos en cualquier momento. Los cambios serán notificados mediante:</p>
+      <ul>
+        <li>Notificación en la Aplicación</li>
+        <li>Correo electrónico</li>
+        <li>Publicación en el sitio web</li>
+      </ul>
+
+      <h3>26.2 Aceptación de Cambios</h3>
+      <p>El uso continuado de la Aplicación después de notificados los cambios constituye su aceptación de los nuevos Términos. Si no está de acuerdo, debe dejar de usar la Aplicación.</p>
+
+      <div class="legal-divider"></div>
+      <h2>27. COMUNICACIONES</h2>
+      <h3>27.1 Notificaciones de Tanda+</h3>
+      <p>Usted acepta recibir comunicaciones electrónicas relacionadas con:</p>
+      <ul>
+        <li>Su cuenta y actividad</li>
+        <li>Recordatorios de pago</li>
+        <li>Actualizaciones de tandas</li>
+        <li>Estado de compras en Tanda+ Tienda</li>
+        <li>Cambios en los Términos</li>
+        <li>Información promocional (puede desactivarse)</li>
+      </ul>
+
+      <h3>27.2 Contacto</h3>
+      <p>Para cualquier consulta:</p>
+      <ul>
+        <li><strong>Email:</strong> equipo@tandamas.mx</li>
+        <li><strong>Sitio web:</strong> www.tandamas.mx</li>
+      </ul>
+
+      <div class="legal-divider"></div>
+      <h2>28. RESOLUCIÓN DE DISPUTAS</h2>
+      <h3>28.1 Entre Usuarios de Tandas</h3>
+      <p>Las disputas entre usuarios de una tanda deben resolverse entre ellos, con mediación del Organizador. Tanda+ puede facilitar la comunicación pero no actúa como árbitro.</p>
+
+      <h3>28.2 Entre Usuarios y Socios Comerciales</h3>
+      <p>Para disputas relacionadas con productos de Tanda+ Tienda:</p>
+      <ul>
+        <li>Contacte primero a nuestro equipo de soporte.</li>
+        <li>Facilitaremos la comunicación con el Socio Comercial.</li>
+        <li>La resolución final depende del Socio Comercial.</li>
+      </ul>
+
+      <h3>28.3 Con Tanda+</h3>
+      <p>Para disputas directamente con Tanda+:</p>
+      <ol>
+        <li>Contacte a nuestro equipo de soporte.</li>
+        <li>Intentaremos resolver la situación amigablemente.</li>
+        <li>Si no hay acuerdo, se procederá conforme a la sección 29.</li>
+      </ol>
+
+      <div class="legal-divider"></div>
+      <h2>29. LEY APLICABLE Y JURISDICCIÓN</h2>
+      <h3>29.1 Ley Aplicable</h3>
+      <p>Estos Términos se rigen por las leyes de los Estados Unidos Mexicanos.</p>
+
+      <h3>29.2 Jurisdicción</h3>
+      <p>Para cualquier controversia derivada de estos Términos, las partes se someten a la jurisdicción de los tribunales competentes de la Ciudad de Oaxaca de Juárez, Estado de Oaxaca, México, renunciando expresamente a cualquier otro fuero que pudiera corresponderles por razón de su domicilio presente o futuro.</p>
+
+      <div class="legal-divider"></div>
+      <h2>30. DISPOSICIONES FINALES</h2>
+      <h3>30.1 Acuerdo Completo</h3>
+      <p>Estos Términos, junto con el Aviso de Privacidad y cualquier política adicional publicada en la Aplicación, constituyen el acuerdo completo entre usted y Tanda+.</p>
+
+      <h3>30.2 Divisibilidad</h3>
+      <p>Si alguna disposición de estos Términos resulta inválida o inaplicable, las demás disposiciones permanecerán en pleno vigor.</p>
+
+      <h3>30.3 Renuncia</h3>
+      <p>La falta de ejercicio de cualquier derecho por parte de Tanda+ no constituye renuncia al mismo.</p>
+
+      <h3>30.4 Cesión</h3>
+      <p>Usted no puede ceder ni transferir estos Términos. Tanda+ puede ceder sus derechos y obligaciones a terceros previa notificación.</p>
+
+      <h3>30.5 Idioma</h3>
+      <p>En caso de discrepancia entre versiones en diferentes idiomas, prevalecerá la versión en español.</p>
+
+      <div class="legal-divider"></div>
+      <h2>DECLARACIÓN DE ACEPTACIÓN</h2>
+      <p>Al tocar "Acepto" o al usar la Aplicación Tanda+, usted declara que:</p>
+      <p>✓ He leído y comprendido estos Términos y Condiciones en su totalidad.</p>
+      <p>✓ Soy mayor de 18 años y tengo capacidad legal para aceptar estos Términos.</p>
+      <p>✓ Acepto quedar legalmente obligado por estos Términos y Condiciones.</p>
+      <p>✓ Entiendo que las tandas son acuerdos entre usuarios y que Tanda+ no garantiza el cumplimiento de otros participantes.</p>
+      <p>✓ Entiendo que Tanda+ Tienda es un marketplace y que los productos son vendidos y enviados por Socios Comerciales.</p>
+      <p>✓ Entiendo que los pagos realizados en Tanda+ Tienda no son reembolsables en efectivo y se convierten en Crédito Tanda+ en caso de cancelación.</p>
+      <p>✓ Acepto el Aviso de Privacidad y el tratamiento de mis datos personales.</p>
+      <p>✓ Acepto recibir comunicaciones electrónicas de Tanda+.</p>
+
+      <div class="legal-divider"></div>
+      <p><strong>Fecha de entrada en vigor:</strong> Febrero 2026</p>
+      <p><strong>Versión del documento:</strong> 1.0</p>
+
+      <div class="legal-divider"></div>
+      <p>© 2026 Tanda+. Todos los derechos reservados.</p>
+      <p>Para preguntas sobre estos Términos: <strong>equipo@tandamas.mx</strong></p>
+    `;
 
     const PRIVACY_HTML = `
       <h1>AVISO DE PRIVACIDAD</h1>
@@ -1168,14 +1934,67 @@
       <div class="legal-note">Para ver el documento completo con todas las disposiciones, abre “Términos y condiciones”.</div>
     `;
 
-    const RETURNS_HTML = `... (SIN CAMBIOS) ...`;
-    const SHIPPING_HTML = `... (SIN CAMBIOS) ...`;
+    const RETURNS_HTML = `
+      <h1>POLÍTICA DE DEVOLUCIONES</h1>
+      <p><strong>Referencia:</strong> Sección 16 (Tanda+ Tienda) de los Términos y Condiciones (Versión 1.0 · Febrero 2026)</p>
+      <div class="legal-divider"></div>
+
+      <h2>16.1 Política General</h2>
+      <p><strong>No existen cancelaciones ni reembolsos.</strong> Los pagos realizados no son reembolsables bajo ninguna circunstancia, decisión que depende exclusivamente del socio comercial.</p>
+      <p>Tanda+ no es vendedor, proveedor ni responsable del producto. Tanda+ únicamente funge como una plataforma de gestión, administración y seguimiento de pagos.</p>
+
+      <h2>16.2 Opción de Pausa</h2>
+      <ul>
+        <li>Puede solicitar una pausa de hasta 2 meses.</li>
+        <li>La pausa no genera costos ni penalizaciones.</li>
+        <li>Solo se permite 1 pausa por producto.</li>
+        <li>Al término de la pausa, debe retomar los pagos normalmente.</li>
+      </ul>
+
+      <h2>16.3 Transferencia de Apartado</h2>
+      <p>No es posible cancelar un apartado; sin embargo, puede transferirlo a un tercero, bajo su total responsabilidad.</p>
+
+      <h2>16.4 Abandono</h2>
+      <p>Se considera abandono cuando han transcurrido más de 2 meses sin realizar pagos sin pausa autorizada. En ese caso se pierde la totalidad de los pagos realizados y el apartado se cancela de forma definitiva.</p>
+
+      <div class="legal-note">Para ver todo el contexto legal completo, abre “Términos y condiciones”.</div>
+    `;
+
+    const SHIPPING_HTML = `
+      <h1>POLÍTICA DE ENVÍOS</h1>
+      <p><strong>Referencia:</strong> Sección 17 (Tanda+ Tienda) de los Términos y Condiciones (Versión 1.0 · Febrero 2026)</p>
+      <div class="legal-divider"></div>
+
+      <h2>17.1 Responsabilidad del Envío</h2>
+      <ul>
+        <li><strong>El Socio Comercial es responsable del envío</strong>, no Tanda+.</li>
+        <li>Tanda+ facilita la comunicación y el seguimiento, pero no controla la logística.</li>
+      </ul>
+
+      <h2>17.2 Proceso de Envío</h2>
+      <ol>
+        <li>Al completar el último pago, se notifica al Socio Comercial.</li>
+        <li>El Socio Comercial prepara y envía el producto.</li>
+        <li>Recibirá información de rastreo cuando esté disponible.</li>
+        <li>El producto se entrega en la dirección proporcionada.</li>
+      </ol>
+
+      <h2>17.3 Tiempos de Entrega</h2>
+      <ul>
+        <li>Estimado general: 5-15 días hábiles después del último pago.</li>
+        <li>Los tiempos específicos se informan al momento de la compra.</li>
+      </ul>
+
+      <h2>17.4 Problemas con el Envío</h2>
+      <p>En caso de problemas con el envío (retrasos, extravíos, daños), contacte a Tanda+ para facilitar la comunicación con el Socio Comercial. El Socio Comercial es responsable de resolver el problema.</p>
+
+      <div class="legal-note">Para ver todo el contexto legal completo, abre “Términos y condiciones”.</div>
+    `;
 
     const docs = {
       terms:  { title:'Términos y Condiciones', meta:'Versión 1.0 · Última actualización: Febrero 2026', html: FULL_TERMS_HTML },
-      privacy:{ title:'Aviso de Privacidad',     meta:'Extracto oficial (Sección 20) · Febrero 2026',               html: PRIVACY_HTML },
-      returns:{ title:'Política de Devoluciones',meta:'Extracto oficial (Sección 16) · Febrero 2026',               html: RETURNS_HTML },
-      shipping:{title:'Política de Envíos',      meta:'Extracto oficial (Sección 17) · Febrero 2026',               html: SHIPPING_HTML }
+      returns:{ title:'Política de Devoluciones',meta:'Extracto oficial (Sección 16) · Febrero 2026', html: RETURNS_HTML },
+      shipping:{title:'Política de Envíos',      meta:'Extracto oficial (Sección 17) · Febrero 2026', html: SHIPPING_HTML }
     };
 
     function openLegal(key){
@@ -1211,6 +2030,51 @@
     overlay.addEventListener('click', (e) => { if (e.target === overlay) closeLegal(); });
     document.addEventListener('keydown', (e) => {
       if (overlay.getAttribute('aria-hidden') === 'false' && e.key === 'Escape') closeLegal();
+    });
+
+    // -----------------------
+    // ✅ PRIVACY ROUTE: /privacy-policy
+    // - sin archivo extra
+    // - Google ve una URL dedicada
+    // -----------------------
+    (function initPrivacyRoute(){
+      const path = (location.pathname || '/').replace(/\/+$/,'') || '/';
+      const isPrivacy = (path === '/privacy-policy');
+
+      const privacyRoute = document.getElementById('privacyRoute');
+      const siteRoot = document.getElementById('siteRoot');
+      const privacyStandalone = document.getElementById('privacyStandalone');
+      const openTermsFromPrivacy = document.getElementById('openTermsFromPrivacy');
+
+      if (!isPrivacy) return;
+
+      // Mostrar página dedicada y ocultar el sitio
+      if (siteRoot) siteRoot.style.display = 'none';
+      if (privacyRoute) privacyRoute.style.display = 'block';
+
+      // Inyectar contenido del aviso
+      if (privacyStandalone) privacyStandalone.innerHTML = PRIVACY_HTML;
+
+      // Título más explícito para Google
+      document.title = 'Aviso de privacidad / Privacy Policy — Tanda+';
+
+      // Botón para abrir términos desde la página de privacidad
+      if (openTermsFromPrivacy){
+        openTermsFromPrivacy.addEventListener('click', (e) => {
+          e.preventDefault();
+          // Cambiamos URL a / y abrimos modal
+          history.pushState({}, '', '/');
+          if (privacyRoute) privacyRoute.style.display = 'none';
+          if (siteRoot) siteRoot.style.display = 'block';
+          openLegal('terms');
+        });
+      }
+    })();
+
+    // Si el usuario navega atrás/adelante
+    window.addEventListener('popstate', () => {
+      // Recargar simple para re-evaluar ruta sin complicaciones
+      location.reload();
     });
   </script>
 </body>
