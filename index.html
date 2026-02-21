@@ -942,11 +942,11 @@
         <div class="panel">
           <h3 style="margin:0 0 10px;">Soporte</h3>
           <p class="muted" style="margin:0 0 12px;">
-            Email: <a href="/cdn-cgi/l/email-protection#731602061a031c3307121d17121e12005d1e0b"><b><span class="__cf_email__" data-cfemail="781d090d110817380c19161c1915190b561500">[email&#160;protected]</span></b></a><br/>
+            Email: <a href="mailto:equipo@tandamas.mx"><b>equipo@tandamas.mx</b></a><br/>
             Ubicación: Oaxaca de Juárez, Oaxaca, México
           </p>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#aacfdbdfc3dac5eadecbc4cecbc7cbd984c7d2">Enviar email</a>
+            <a class="btn btn-primary" href="mailto:equipo@tandamas.mx">Enviar email</a>
           </div>
         </div>
 
@@ -996,14 +996,13 @@
             <li><a href="/privacy-policy.html" target="_blank" rel="noopener">Aviso de privacidad / Privacy Policy</a></li>
             <li><a href="#" data-legal="returns">Política de devoluciones</a></li>
             <li><a href="#" data-legal="shipping">Política de envíos</a></li>
-            <li><a href="/eliminar-cuenta.html" target="_blank" rel="noopener">Eliminar cuenta</a></li>
           </ul>
         </div>
 
         <div>
           <p class="footer-title">Contacto</p>
           <ul>
-            <li><a href="/cdn-cgi/l/email-protection#5a3f2b2f332a351a2e3b343e3b373b29743722"><span class="__cf_email__" data-cfemail="3055414559405f7044515e54515d51431e5d48">[email&#160;protected]</span></a></li>
+            <li><a href="mailto:equipo@tandamas.mx">equipo@tandamas.mx</a></li>
             <li><a href="#contacto">Oaxaca, MX</a></li>
           </ul>
         </div>
@@ -1030,7 +1029,7 @@
     </div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // Close other FAQ items when one opens
     const faqDetails = document.querySelectorAll('#faq details');
     faqDetails.forEach(d => {
@@ -1902,4 +1901,16 @@
 
     document.querySelectorAll('[data-legal]').forEach(a => {
       a.addEventListener('click', (e) => {
-     
+        e.preventDefault();
+        openLegal(a.getAttribute('data-legal'));
+      });
+    });
+
+    closeBtn.addEventListener('click', closeLegal);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeLegal(); });
+    document.addEventListener('keydown', (e) => {
+      if (overlay.getAttribute('aria-hidden') === 'false' && e.key === 'Escape') closeLegal();
+    });
+  </script>
+</body>
+</html>
