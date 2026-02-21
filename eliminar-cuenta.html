@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Solicitud de eliminación de cuenta y datos - Tanda+ (Tanda Más)" />
+  <meta name="theme-color" content="#667EEA" />
+  <title>Eliminar Cuenta - Tanda+ (Tanda Más)</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <style>
+    :root {
+      --primary: #667EEA;
+      --primary-dark: #764BA2;
+      --accent: #10B981;
+      --bg: #F9FAFB;
+      --surface: #FFFFFF;
+      --text: #111827;
+      --muted: #6B7280;
+      --border: #E5E7EB;
+      --radius: 18px;
+      --max: 800px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0 0 10px;
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .header p {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 16px;
+    }
+    .header .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .header .brand img {
+      height: 50px;
+      width: auto;
+      border-radius: 12px;
+    }
+    .header .brand span {
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    /* Content */
+    .content {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-top: -30px;
+      position: relative;
+      box-shadow: 0 12px 40px rgba(17,24,39,0.08);
+    }
+
+    h2 {
+      color: var(--text);
+      font-size: 20px;
+      font-weight: 700;
+      margin: 32px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+    h2:first-of-type {
+      margin-top: 0;
+    }
+
+    h3 {
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 600;
+      margin: 24px 0 12px;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--text);
+    }
+
+    ul, ol {
+      margin: 0 0 16px;
+      padding-left: 24px;
+    }
+    li {
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .step-box {
+      background: #F0F4FF;
+      border: 1px solid rgba(102,126,234,0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .step-box h3 {
+      margin: 0 0 12px;
+      color: var(--primary);
+    }
+    .step-box ol {
+      margin: 0;
+    }
+
+    .email-box {
+      background: #ECFDF5;
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .email-box h3 {
+      margin: 0 0 12px;
+      color: #065F46;
+    }
+
+    .warning-box {
+      background: #FEF3C7;
+      border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .warning-box h3 {
+      margin: 0 0 12px;
+      color: #92400E;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+    .data-table th,
+    .data-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table th {
+      background: var(--bg);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .data-table td {
+      font-size: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #5A73E6;
+      text-decoration: none;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      background: var(--bg);
+      text-decoration: none;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer a {
+      color: var(--muted);
+    }
+    .footer a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      .content {
+        padding: 24px 20px;
+      }
+      .data-table th,
+      .data-table td {
+        padding: 10px 8px;
+        font-size: 13px;
+      }
+      .actions {
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a href="/" class="brand">
+      <img src="/assets/logo-tanda.png" alt="Tanda+ Logo" onerror="this.style.display='none'">
+      <span>Tanda+</span>
+    </a>
+    <h1>Solicitud de Eliminación de Cuenta</h1>
+    <p>Información sobre cómo eliminar tu cuenta y datos asociados</p>
+  </header>
+
+  <div class="container">
+    <div class="content">
+
+      <h2>Cómo eliminar tu cuenta y datos</h2>
+      <p>Si deseas eliminar tu cuenta de Tanda+ y todos los datos asociados, puedes hacerlo de las siguientes formas:</p>
+
+      <div class="step-box">
+        <h3>📱 Opción 1: Desde la App</h3>
+        <ol>
+          <li>Abre la app <strong>Tanda+</strong></li>
+          <li>Ve a <strong>Perfil → Configuración</strong></li>
+          <li>Desplázate hacia abajo y toca <strong>"Eliminar mi cuenta"</strong></li>
+          <li>Confirma la eliminación ingresando tu contraseña</li>
+          <li>Tu cuenta será eliminada en un plazo de 24-48 horas</li>
+        </ol>
+      </div>
+
+      <div class="email-box">
+        <h3>✉️ Opción 2: Por correo electrónico</h3>
+        <p>Envía un correo a <strong>equipo@tandamas.mx</strong> con la siguiente información:</p>
+        <ul>
+          <li><strong>Asunto:</strong> "Solicitud de eliminación de cuenta"</li>
+          <li><strong>Cuerpo del mensaje:</strong>
+            <ul>
+              <li>El correo electrónico registrado en tu cuenta</li>
+              <li>Tu nombre completo</li>
+              <li>Motivo de la eliminación (opcional)</li>
+            </ul>
+          </li>
+        </ul>
+        <p style="margin-bottom:0;">Procesaremos tu solicitud en un máximo de <strong>5 días hábiles</strong>.</p>
+      </div>
+
+      <h2>Datos que se eliminan</h2>
+      <p>Al eliminar tu cuenta, se borrarán permanentemente los siguientes datos:</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Tipo de dato</th>
+            <th>Se elimina</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Perfil y foto de usuario</td>
+            <td>✅ Sí</td>
+          </tr>
+          <tr>
+            <td>Información de contacto (correo, teléfono)</td>
+            <td>✅ Sí</td>
+          </tr>
+          <tr>
+            <td>Historial de tandas completadas</td>
+            <td>✅ Sí</td>
+          </tr>
+          <tr>
+            <td>Colección de cartas de Lotería</td>
+            <td>✅ Sí</td>
+          </tr>
+          <tr>
+            <td>Puntaje de reputación</td>
+            <td>✅ Sí</td>
+          </tr>
+          <tr>
+            <td>Preferencias y configuración</td>
+            <td>✅ Sí</td>
+          </tr>
+          <tr>
+            <td>Crédito Tanda+ no utilizado</td>
+            <td>✅ Sí (se pierde)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Datos que se conservan (por obligación legal)</h2>
+      <p>De acuerdo con la legislación mexicana, estamos obligados a conservar ciertos datos por un periodo determinado:</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Tipo de dato</th>
+            <th>Periodo de retención</th>
+            <th>Motivo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Registros de transacciones financieras</td>
+            <td>5 años</td>
+            <td>Código Fiscal de la Federación</td>
+          </tr>
+          <tr>
+            <td>Comprobantes de pago</td>
+            <td>5 años</td>
+            <td>Obligaciones fiscales</td>
+          </tr>
+          <tr>
+            <td>Datos de facturación</td>
+            <td>5 años</td>
+            <td>SAT / Auditorías</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Estos datos se conservan de forma anonimizada cuando es posible y solo para cumplir con obligaciones legales.</p>
+
+      <div class="warning-box">
+        <h3>⚠️ Importante antes de eliminar tu cuenta</h3>
+        <ul style="margin-bottom:0;">
+          <li><strong>Tandas activas:</strong> Si tienes tandas en curso, debes completarlas o coordinar con el organizador antes de eliminar tu cuenta.</li>
+          <li><strong>Pagos pendientes:</strong> Debes estar al corriente con todos tus pagos.</li>
+          <li><strong>Apartados en Tanda+ Tienda:</strong> Si tienes productos en proceso de pago, debes completarlos o cancelarlos primero.</li>
+          <li><strong>Acción irreversible:</strong> Una vez eliminada, no podrás recuperar tu cuenta, historial, cartas coleccionadas ni crédito acumulado.</li>
+        </ul>
+      </div>
+
+      <h2>Tiempo de procesamiento</h2>
+      <ul>
+        <li><strong>Desde la app:</strong> 24-48 horas</li>
+        <li><strong>Por correo electrónico:</strong> Hasta 5 días hábiles</li>
+      </ul>
+      <p>Recibirás una confirmación por correo electrónico cuando tu cuenta haya sido eliminada.</p>
+
+      <h2>Contacto</h2>
+      <p>Si tienes preguntas sobre este proceso o necesitas ayuda:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:equipo@tandamas.mx">equipo@tandamas.mx</a></li>
+        <li><strong>Sitio web:</strong> <a href="https://tandamas.mx">tandamas.mx</a></li>
+      </ul>
+
+      <div class="actions">
+        <a href="mailto:equipo@tandamas.mx?subject=Solicitud%20de%20eliminación%20de%20cuenta" class="btn btn-primary">
+          ✉️ Enviar solicitud por email
+        </a>
+        <a href="/" class="btn btn-outline">
+          ← Volver al inicio
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 Tanda+. Todos los derechos reservados.</p>
+    <p>
+      <a href="/">Inicio</a> · 
+      <a href="/privacy-policy.html">Política de Privacidad</a> · 
+      <a href="/#contacto">Contacto</a>
+    </p>
+  </footer>
+
+</body>
+</html>
