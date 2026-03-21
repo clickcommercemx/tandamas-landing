@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#667EEA" />
 
   <meta property="og:title" content="Tanda+ (Tanda Más) — Ahorra en comunidad" />
-  <meta property="og:description" content="Organiza tandas digitales o compra productos a plazos sin intereses. Pagos con OXXO, SPEI o tarjeta. Todo verificado y seguro." />
+  <meta property="og:description" content="Organiza tandas digitales o compra productos a plazos sin intereses. Tarjeta y pago en tienda con Stripe; SPEI cuando aplique. Todo verificado y seguro." />
   <meta property="og:type" content="website" />
   
   <!-- Favicons -->
@@ -620,7 +620,7 @@
             <a class="btn btn-outline" style="border-color:rgba(255,255,255,.35); color:#fff;" href="#precios">Ver sistema</a>
           </div>
 
-          <p class="hero-note">*Términos y tarifas sujetos a cambios. Pagos procesados de forma segura.</p>
+          <p class="hero-note">*Términos y tarifas sujetos a cambios. Pagos con tarjeta y pago en tienda procesados con Stripe.</p>
         </div>
 
         <!-- Parallax mock -->
@@ -667,7 +667,7 @@
         <div class="feature">
           <div class="icon green">🔒</div>
           <h3>Seguridad verificada</h3>
-          <p>Verificación de identidad, pagos seguros (OXXO, SPEI, tarjeta) y registro inmutable de transacciones.</p>
+          <p>Verificación de identidad, pagos seguros (tarjeta y pago en tienda vía Stripe; SPEI cuando aplique) y registro inmutable de transacciones.</p>
         </div>
 
         <div class="feature">
@@ -694,7 +694,7 @@
           <ol class="muted" style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:10px;">
             <li><b>Crea tu tanda:</b> monto, participantes y frecuencia (semanal/quincenal/mensual).</li>
             <li><b>Invita a tu círculo:</b> comparte el código por WhatsApp. Solo personas verificadas se unen.</li>
-            <li><b>Todos pagan:</b> OXXO, SPEI o tarjeta desde la app. Todo queda registrado.</li>
+            <li><b>Todos pagan:</b> tarjeta, pago en tienda (OXXO y red asociada, vía Stripe) o SPEI desde la app, según lo que permita la tanda. Todo queda registrado.</li>
             <li><b>Turnos automáticos:</b> el sistema asigna y entrega el bote puntualmente. Transparencia total.</li>
           </ol>
           <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
@@ -759,7 +759,7 @@
           <p>Para organizadoras frecuentes: crea más tandas por $39 c/u.</p>
           <ul class="muted" style="margin:12px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:8px;">
             <li>Hasta $10,000 por turno, por participante</li>
-            <li>Pago con tarjeta de crédito o deposito en oxxo </li>
+            <li>Pago con tarjeta o pago en tienda (OXXO, vía Stripe)</li>
             <li>Comunicación con tu grupo de tanda</li>
           </ul>
         </div>
@@ -871,7 +871,7 @@
 
         <details>
           <summary>¿Es seguro usar Tanda+? <span class="chev">⌄</span></summary>
-          <p>Sí. Hay proceso de verificación de usuarios, los pagos se procesan con Conekta y cada transacción queda registrada.</p>
+          <p>Sí. Hay proceso de verificación de usuarios, los pagos con tarjeta y pago en tienda se procesan con Stripe y cada transacción queda registrada.</p>
         </details>
 
         <details>
@@ -886,7 +886,7 @@
 
         <details>
           <summary>¿Cómo pago? <span class="chev">⌄</span></summary>
-          <p>Puedes pagar en OXXO (efectivo), por transferencia SPEI, o con tarjeta de crédito/débito desde la app.</p>
+          <p>Puedes pagar con tarjeta de crédito o débito, pago en tienda (efectivo en redes de conveniencia, incluido OXXO cuando aplique) mediante Stripe, o por transferencia SPEI cuando la tanda lo permita.</p>
         </details>
 
         <details>
@@ -919,8 +919,8 @@
           <div class="panel" style="background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.18); color:#fff;">
             <h4 style="margin:0 0 10px;">Métodos de pago</h4>
             <p style="margin:0; color:rgba(255,255,255,.84)">
-              🏪 OXXO &nbsp;&nbsp; 🏦 SPEI &nbsp;&nbsp; 💳 Tarjeta<br/>
-              <span style="opacity:.82"></span>
+              💳 Tarjeta &nbsp;&nbsp; 🏪 Pago en tienda (OXXO) &nbsp;&nbsp; 🏦 SPEI<br/>
+              <span style="opacity:.82; font-size:12px; display:block; margin-top:8px;">Procesamiento con Stripe (tarjeta y pago en tienda).</span>
             </p>
           </div>
         </div>
@@ -974,7 +974,7 @@
         <div>
           <p class="footer-title">Tanda+ (Tanda Más)</p>
           <p style="margin:0; color:rgba(255,255,255,.72)">
-            Pagos procesados de forma segura.<br/>
+            Pagos con tarjeta y pago en tienda procesados con Stripe.<br/>
             Tanda+ actúa como intermediario tecnológico y no es institución financiera.
           </p>
         </div>
@@ -1136,7 +1136,7 @@
 
     const FULL_TERMS_HTML = `
       <h1>TÉRMINOS Y CONDICIONES DE USO DE TANDA+</h1>
-      <p><strong>Versión:</strong> 1.0<br><strong>Última actualización:</strong> Febrero 2026</p>
+      <p><strong>Versión:</strong> 1.1<br><strong>Última actualización:</strong> Marzo 2026</p>
       <div class="legal-divider"></div>
 
       <h2>IMPORTANTE: LEA CUIDADOSAMENTE</h2>
@@ -1297,9 +1297,8 @@
       <h2>9. PAGOS EN TANDAS</h2>
       <h3>9.1 Métodos de Pago Aceptados</h3>
       <ul>
-        <li>Pago en OXXO (efectivo)</li>
-        <li>Transferencia SPEI</li>
-        <li>Tarjeta de crédito o débito</li>
+        <li>Tarjeta de crédito o débito y pago en tienda (efectivo en redes de conveniencia, incluido OXXO cuando aplique), procesados mediante Stripe</li>
+        <li>Transferencia SPEI cuando la tanda u Organizador lo permitan</li>
       </ul>
 
       <h3>9.2 Fechas de Pago</h3>
@@ -1420,7 +1419,7 @@
       <h3>14.2 Pagos</h3>
       <ul>
         <li>Los pagos deben realizarse mensualmente en la fecha establecida.</li>
-        <li>Puede pagar mediante OXXO, SPEI o tarjeta.</li>
+        <li>Puede pagar con tarjeta o pago en tienda mediante Stripe, o SPEI cuando aplique.</li>
         <li>Recibirá recordatorios antes de cada fecha de pago.</li>
         <li>Puede adelantar pagos o liquidar anticipadamente sin penalización.</li>
       </ul>
@@ -1573,12 +1572,12 @@
       <div class="legal-divider"></div>
       <h2>19. PROCESAMIENTO DE PAGOS</h2>
       <h3>19.1 Procesador de Pagos</h3>
-      <p>Los pagos son procesados a través de plataformas de pago certificadas y seguras.</p>
+      <p>Los pagos con tarjeta y pago en tienda se procesan a través de Stripe (incluido Stripe Connect cuando aplique para repartir fondos al receptor).</p>
 
       <h3>19.2 Seguridad</h3>
       <ul>
         <li>Tanda+ no almacena datos completos de tarjetas de crédito o débito.</li>
-        <li>Las transacciones están protegidas con encriptación.</li>
+        <li>Las transacciones se procesan conforme a prácticas de la industria (p. ej. PCI DSS) mediante el proveedor de pago.</li>
         <li>Cumplimos con estándares de seguridad de la industria de pagos.</li>
       </ul>
 
@@ -1592,6 +1591,7 @@
       <h2>20. PRIVACIDAD Y DATOS PERSONALES</h2>
       <h3>20.1 Aviso de Privacidad</h3>
       <p>El tratamiento de sus datos personales se rige por nuestro Aviso de Privacidad, disponible en la Aplicación y en nuestro sitio web.</p>
+      <p>Para procesar pagos con tarjeta o pago en tienda, se comparten con Stripe, Inc. (y sus encargados) únicamente los datos necesarios para la operación, conforme a la política de privacidad de Stripe aplicable en su región.</p>
 
       <h3>20.2 Datos que Recopilamos</h3>
       <ul>
@@ -1807,8 +1807,8 @@
       <p>✓ Acepto recibir comunicaciones electrónicas de Tanda+.</p>
 
       <div class="legal-divider"></div>
-      <p><strong>Fecha de entrada en vigor:</strong> Febrero 2026</p>
-      <p><strong>Versión del documento:</strong> 1.0</p>
+      <p><strong>Fecha de entrada en vigor:</strong> Marzo 2026</p>
+      <p><strong>Versión del documento:</strong> 1.1</p>
 
       <div class="legal-divider"></div>
       <p>© 2026 Tanda+. Todos los derechos reservados.</p>
@@ -1817,7 +1817,7 @@
 
     const RETURNS_HTML = `
       <h1>POLÍTICA DE DEVOLUCIONES</h1>
-      <p><strong>Referencia:</strong> Sección 16 (Tanda+ Tienda) de los Términos y Condiciones (Versión 1.0 · Febrero 2026)</p>
+      <p><strong>Referencia:</strong> Sección 16 (Tanda+ Tienda) de los Términos y Condiciones (Versión 1.1 · Marzo 2026)</p>
       <div class="legal-divider"></div>
 
       <h2>16.1 Política General</h2>
@@ -1843,7 +1843,7 @@
 
     const SHIPPING_HTML = `
       <h1>POLÍTICA DE ENVÍOS</h1>
-      <p><strong>Referencia:</strong> Sección 17 (Tanda+ Tienda) de los Términos y Condiciones (Versión 1.0 · Febrero 2026)</p>
+      <p><strong>Referencia:</strong> Sección 17 (Tanda+ Tienda) de los Términos y Condiciones (Versión 1.1 · Marzo 2026)</p>
       <div class="legal-divider"></div>
 
       <h2>17.1 Responsabilidad del Envío</h2>
@@ -1873,9 +1873,9 @@
     `;
 
     const docs = {
-      terms:  { title:'Términos y Condiciones', meta:'Versión 1.0 · Última actualización: Febrero 2026', html: FULL_TERMS_HTML },
-      returns:{ title:'Política de Devoluciones',meta:'Extracto oficial (Sección 16) · Febrero 2026',               html: RETURNS_HTML },
-      shipping:{title:'Política de Envíos',      meta:'Extracto oficial (Sección 17) · Febrero 2026',               html: SHIPPING_HTML }
+      terms:  { title:'Términos y Condiciones', meta:'Versión 1.1 · Última actualización: Marzo 2026', html: FULL_TERMS_HTML },
+      returns:{ title:'Política de Devoluciones',meta:'Extracto oficial (Sección 16) · Marzo 2026',               html: RETURNS_HTML },
+      shipping:{title:'Política de Envíos',      meta:'Extracto oficial (Sección 17) · Marzo 2026',               html: SHIPPING_HTML }
     };
 
     function openLegal(key){
