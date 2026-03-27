@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#667EEA" />
+  <title>Pago exitoso | TandaMás</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary: #667EEA;
+      --primary-dark: #764BA2;
+      --accent: #10B981;
+
+      --bg: #F6F7FB;
+      --surface: #FFFFFF;
+      --text: #111827;
+      --muted: #6B7280;
+      --border: #E5E7EB;
+
+      --shadow: 0 18px 50px rgba(17,24,39,.10);
+      --radius: 24px;
+      --grad-main: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(102,126,234,.18), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(118,75,162,.16), transparent 28%),
+        var(--bg);
+      color:var(--text);
+    }
+
+    .page{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .card{
+      width:100%;
+      max-width:620px;
+      background:var(--surface);
+      border:1px solid rgba(229,231,235,.9);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .card-top{
+      background:var(--grad-main);
+      padding:28px 28px 74px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card-top::before{
+      content:"";
+      position:absolute;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      top:-90px;
+      right:-70px;
+      background:rgba(255,255,255,.14);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      position:relative;
+      z-index:2;
+    }
+
+    .brand img{
+      height:48px;
+      width:auto;
+      object-fit:contain;
+    }
+
+    .brand-name{
+      color:#fff;
+      font-weight:800;
+      letter-spacing:-.02em;
+      font-size:20px;
+    }
+
+    .status-wrap{
+      margin-top:-46px;
+      padding:0 28px 28px;
+      position:relative;
+      z-index:3;
+    }
+
+    .status-badge{
+      width:92px;
+      height:92px;
+      border-radius:50%;
+      background:#fff;
+      border:6px solid rgba(16,185,129,.16);
+      box-shadow:0 12px 30px rgba(17,24,39,.10);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:0 auto 18px;
+    }
+
+    .check{
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      background:rgba(16,185,129,.14);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--accent);
+      font-size:30px;
+      font-weight:900;
+    }
+
+    .content{
+      text-align:center;
+      padding:0 6px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(16,185,129,.10);
+      color:#047857;
+      border:1px solid rgba(16,185,129,.18);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:13px;
+      font-weight:700;
+      margin-bottom:16px;
+    }
+
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(28px, 4vw, 38px);
+      line-height:1.05;
+      letter-spacing:-.03em;
+    }
+
+    .lead{
+      margin:0 auto 22px;
+      max-width:38ch;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.55;
+    }
+
+    .highlight{
+      margin:0 auto 18px;
+      max-width:430px;
+      padding:18px 20px;
+      background:linear-gradient(180deg, rgba(102,126,234,.07), rgba(118,75,162,.05));
+      border:1px solid rgba(102,126,234,.14);
+      border-radius:18px;
+      color:#374151;
+      font-size:15px;
+      line-height:1.6;
+    }
+
+    .payment-box{
+      margin:18px auto 0;
+      max-width:430px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:18px;
+      box-shadow:0 10px 26px rgba(17,24,39,.06);
+      text-align:left;
+    }
+
+    .payment-box h3{
+      margin:0 0 14px;
+      font-size:16px;
+      letter-spacing:-.02em;
+    }
+
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(229,231,235,.8);
+      font-size:14px;
+    }
+
+    .row:last-child{
+      border-bottom:none;
+      padding-bottom:0;
+    }
+
+    .label{
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .value{
+      color:var(--text);
+      font-weight:800;
+      text-align:right;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(102,126,234,.10);
+      color:#4338CA;
+      font-size:12px;
+      font-weight:800;
+      border:1px solid rgba(102,126,234,.14);
+    }
+
+    .footer-note{
+      margin:18px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top:24px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      appearance:none;
+      border:none;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:13px 18px;
+      border-radius:14px;
+      font-weight:700;
+      font-size:14px;
+      text-decoration:none;
+      transition:transform .08s ease, opacity .2s ease, background .2s ease;
+    }
+
+    .btn:active{transform:translateY(1px)}
+
+    .btn-primary{
+      background:var(--grad-main);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(102,126,234,.28);
+    }
+
+    .btn-secondary{
+      background:#fff;
+      color:var(--text);
+      border:1px solid rgba(17,24,39,.12);
+    }
+
+    .bottom-strip{
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:12px;
+      text-align:center;
+    }
+
+    @media (max-width: 520px){
+      .card-top{
+        padding:22px 22px 66px;
+      }
+
+      .status-wrap{
+        padding:0 22px 24px;
+      }
+
+      .brand img{
+        height:42px;
+      }
+
+      .lead{
+        font-size:16px;
+      }
+
+      .highlight{
+        font-size:14px;
+      }
+
+      .actions{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .row{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:4px;
+      }
+
+      .value{
+        text-align:left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="card" aria-labelledby="titulo-confirmacion">
+      <div class="card-top">
+        <div class="brand">
+          <img src="../assets/logo-tanda-mas.png" alt="Logo TandaMás" onerror="this.style.display='none'">
+          <div class="brand-name"></div>
+        </div>
+      </div>
+
+      <div class="status-wrap">
+        <div class="status-badge" aria-hidden="true">
+          <div class="check">✓</div>
+        </div>
+
+        <div class="content">
+          <div class="eyebrow">Pago confirmado</div>
+
+          <h1 id="titulo-confirmacion">✅ Pago realizado exitosamente</h1>
+
+          <p class="lead">
+            Tu pago por <strong>1 tanda con comisión</strong> fue procesado correctamente y ya quedó registrado en TandaMás.
+          </p>
+
+          <div class="highlight">
+            La creación de tu tanda ya puede continuar con este pago confirmado.
+          </div>
+
+          <div class="payment-box">
+            <h3>Resumen del pago</h3>
+
+            <div class="row">
+              <div class="label">Concepto</div>
+              <div class="value">1 tanda con comisión</div>
+            </div>
+            
+            <div class="row">
+              <div class="label">Estatus</div>
+              <div class="value" style="color:#047857;">Pagado</div>
+            </div>
+
+            <div class="row">
+              <div class="label">Registro</div>
+              <div class="value">Procesado correctamente</div>
+            </div>
+          </div>
+
+          <p class="footer-note">
+            Puedes cerrar esta ventana para volver a TandaMás o regresar al inicio.
+          </p>
+
+          <div class="actions">
+            <button class="btn btn-primary" onclick="window.close()">Cerrar ventana</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
