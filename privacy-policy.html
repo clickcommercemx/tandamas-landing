@@ -42,7 +42,6 @@
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--max); margin:0 auto; padding:0 20px;}
 
-    /* Simple top bar */
     .topbar{
       background:rgba(249,250,251,.85);
       backdrop-filter:saturate(160%) blur(10px);
@@ -50,9 +49,10 @@
       position:sticky; top:0; z-index:50;
     }
     .topbar-inner{
-      height:72px;
+      min-height:72px;
       display:flex; align-items:center; justify-content:space-between;
-      gap:12px;
+      gap:12px; flex-wrap:wrap;
+      padding:10px 0;
     }
     .brand{
       display:flex; align-items:center; gap:12px;
@@ -61,6 +61,9 @@
     }
     .brand img{
       height:54px; width:auto; border-radius:16px; object-fit:contain;
+    }
+    .topbar-actions{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
     }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
@@ -72,11 +75,36 @@
       background:#fff;
       transition:transform .08s ease, background .2s ease;
       white-space:nowrap;
+      cursor:pointer;
     }
     .btn:active{transform:translateY(1px)}
     .btn:hover{background:rgba(17,24,39,.04)}
 
-    /* Header */
+    .lang-switch{
+      display:inline-flex;
+      background:#fff;
+      border:1px solid rgba(17,24,39,.12);
+      border-radius:14px;
+      padding:4px;
+      gap:4px;
+      box-shadow:0 4px 16px rgba(17,24,39,.06);
+    }
+    .lang-btn{
+      border:none;
+      background:transparent;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:800;
+      font-size:13px;
+      color:var(--muted);
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .lang-btn.active{
+      background:var(--grad-hero);
+      color:#fff;
+    }
+
     .hero{
       background:var(--grad-hero);
       color:#fff;
@@ -95,7 +123,6 @@
       font-size:14px;
     }
 
-    /* Content */
     .card{
       background:var(--surface);
       border:1px solid var(--border);
@@ -124,43 +151,63 @@
       color:rgba(17,24,39,.60);
       font-size:12px;
     }
+
+    @media (max-width: 700px){
+      .topbar-inner{
+        align-items:flex-start;
+      }
+      .topbar-actions{
+        width:100%;
+        justify-content:space-between;
+      }
+      .btn{
+        padding:11px 14px;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <header class="topbar" aria-label="Barra superior">
+  <header class="topbar" aria-label="Barra superior / Top bar">
     <div class="container">
       <div class="topbar-inner">
-        <a class="brand" href="/" aria-label="Volver al inicio">
+        <a class="brand" href="/" aria-label="Volver al inicio / Back to home">
           <img src="assets/logo-tanda-mas.png" alt="Logo Tanda Más" onerror="this.style.display='none'">
           <span>Tanda+ <span style="font-weight:800;color:rgba(17,24,39,.55)">(Tanda Más)</span></span>
         </a>
-        <a class="btn" href="/">← Volver al inicio</a>
+
+        <div class="topbar-actions">
+          <div class="lang-switch" aria-label="Selector de idioma / Language switcher">
+            <button class="lang-btn active" id="btn-es" type="button" onclick="setLanguage('es')">ES</button>
+            <button class="lang-btn" id="btn-en" type="button" onclick="setLanguage('en')">EN</button>
+          </div>
+          <a class="btn" href="/" id="backBtn">← Volver al inicio</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <section class="hero" aria-label="Encabezado">
+  <section class="hero" aria-label="Encabezado / Header">
     <div class="container">
-      <h1>Aviso de Privacidad / Privacy Policy</h1>
-      <div class="sub">Versión 1.1 · Última actualización: Marzo 2026</div>
+      <h1 id="pageTitle">Aviso de Privacidad / Privacy Policy</h1>
+      <div class="sub" id="pageSub">Versión 1.1 · Última actualización: Marzo 2026</div>
     </div>
   </section>
 
   <main class="container">
-    <article class="card" aria-label="Contenido legal">
-      <p><strong>Referencia:</strong> Sección 20 de los Términos y Condiciones (Versión 1.1 · Marzo 2026)</p>
+    <article class="card" aria-label="Contenido legal / Legal content">
+      <p><strong id="referenceLabel">Referencia:</strong> <span id="referenceText">Sección 20 de los Términos y Condiciones (Versión 1.1 · Marzo 2026)</span></p>
       <div class="divider"></div>
 
-      <h2>20.1 Aviso de Privacidad</h2>
-      <p>El tratamiento de sus datos personales se rige por este Aviso de Privacidad, disponible en la aplicación Tanda+ y en nuestro sitio web tandamas.mx.</p>
+      <h2 id="h201">20.1 Aviso de Privacidad</h2>
+      <p id="p201">El tratamiento de sus datos personales se rige por este Aviso de Privacidad, disponible en la aplicación Tanda+ y en nuestro sitio web tandamas.mx.</p>
 
-      <h2>20.2 Compartición de datos</h2>
-      <p>Su información básica (nombre, foto, reputación) es visible para otros usuarios de las tandas en las que participa. Tanda+ no vende ni comparte su información personal con terceros para fines de marketing.</p>
-      <p>Para procesar pagos con tarjeta o pago en tienda, se comparten con el proveedor de pagos Stripe, Inc. (y sus encargados) únicamente los datos necesarios para la operación (por ejemplo, identificadores de transacción y, cuando corresponda, datos de facturación), conforme a la política de privacidad de Stripe aplicable en su región.</p>
+      <h2 id="h202">20.2 Compartición de datos</h2>
+      <p id="p202a">Su información básica (nombre, foto, reputación) es visible para otros usuarios de las tandas en las que participa. Tanda+ no vende ni comparte su información personal con terceros para fines de marketing.</p>
+      <p id="p202b">Para procesar pagos con tarjeta o pago en tienda, se comparten con el proveedor de pagos Stripe, Inc. (y sus encargados) únicamente los datos necesarios para la operación (por ejemplo, identificadores de transacción y, cuando corresponda, datos de facturación), conforme a la política de privacidad de Stripe aplicable en su región.</p>
 
-      <h2>20.3 Datos que Recopilamos</h2>
-      <ul>
+      <h2 id="h203">20.3 Datos que Recopilamos</h2>
+      <ul id="list203">
         <li>Datos de identificación (nombre, INE, fotografía)</li>
         <li>Datos de contacto (correo electrónico, dirección de envío)</li>
         <li>Datos transaccionales (historial de pagos)</li>
@@ -168,9 +215,9 @@
         <li>Datos técnicos: dispositivo, IP, registros cuando aplique</li>
       </ul>
 
-      <h2>20.4 Uso de Datos</h2>
-      <p>Sus datos se utilizan para:</p>
-      <ul>
+      <h2 id="h204">20.4 Uso de Datos</h2>
+      <p id="p204">Sus datos se utilizan para:</p>
+      <ul id="list204">
         <li>Proporcionar los servicios de la Aplicación</li>
         <li>Verificar su identidad</li>
         <li>Procesar pagos</li>
@@ -179,18 +226,150 @@
         <li>Cumplir obligaciones legales</li>
       </ul>
 
-      <h2>20.5 Seguridad</h2>
-      <p>Implementamos medidas de seguridad técnicas y organizativas para proteger su información, incluyendo encriptación y acceso restringido. Tanda+ no almacena datos completos de tarjetas de crédito o débito; el procesamiento de pagos con tarjeta y pago en tienda se realiza mediante Stripe.</p>
+      <h2 id="h205">20.5 Seguridad</h2>
+      <p id="p205">Implementamos medidas de seguridad técnicas y organizativas para proteger su información, incluyendo encriptación y acceso restringido. Tanda+ no almacena datos completos de tarjetas de crédito o débito; el procesamiento de pagos con tarjeta y pago en tienda se realiza mediante Stripe.</p>
 
-      <div class="note">
+      <div class="note" id="noteText">
         Para ver el documento completo con todas las disposiciones, abre “Términos y condiciones” desde el sitio principal.
       </div>
     </article>
 
     <footer>
-      <p>Para ejercer derechos ARCO o consultas de privacidad: <a href="mailto:equipo@tandamas.mx" style="text-decoration:underline">equipo@tandamas.mx</a></p>
-      <p>© 2026 Tanda+. Todos los derechos reservados.</p>
+      <p id="footerContact">Para ejercer derechos ARCO o consultas de privacidad: <a href="mailto:equipo@tandamas.mx" style="text-decoration:underline">equipo@tandamas.mx</a></p>
+      <p id="footerCopy">© 2026 Tanda+. Todos los derechos reservados.</p>
     </footer>
   </main>
+
+  <script>
+    const content = {
+      es: {
+        lang: "es-MX",
+        title: "Aviso de Privacidad / Privacy Policy",
+        metaDescription: "Aviso de Privacidad / Privacy Policy de Tanda+ (Tanda Más).",
+        ogTitle: "Aviso de Privacidad / Privacy Policy — Tanda+",
+        ogDescription: "Consulta el Aviso de Privacidad / Privacy Policy de Tanda+ (Tanda Más).",
+        documentTitle: "Aviso de Privacidad / Privacy Policy — Tanda+",
+        backBtn: "← Volver al inicio",
+        pageTitle: "Aviso de Privacidad / Privacy Policy",
+        pageSub: "Versión 1.1 · Última actualización: Marzo 2026",
+        referenceLabel: "Referencia:",
+        referenceText: "Sección 20 de los Términos y Condiciones (Versión 1.1 · Marzo 2026)",
+        h201: "20.1 Aviso de Privacidad",
+        p201: "El tratamiento de sus datos personales se rige por este Aviso de Privacidad, disponible en la aplicación Tanda+ y en nuestro sitio web tandamas.mx.",
+        h202: "20.2 Compartición de datos",
+        p202a: "Su información básica (nombre, foto, reputación) es visible para otros usuarios de las tandas en las que participa. Tanda+ no vende ni comparte su información personal con terceros para fines de marketing.",
+        p202b: "Para procesar pagos con tarjeta o pago en tienda, se comparten con el proveedor de pagos Stripe, Inc. (y sus encargados) únicamente los datos necesarios para la operación (por ejemplo, identificadores de transacción y, cuando corresponda, datos de facturación), conforme a la política de privacidad de Stripe aplicable en su región.",
+        h203: "20.3 Datos que Recopilamos",
+        list203: [
+          "Datos de identificación (nombre, INE, fotografía)",
+          "Datos de contacto (correo electrónico, dirección de envío)",
+          "Datos transaccionales (historial de pagos)",
+          "Datos de uso de la Aplicación",
+          "Datos técnicos: dispositivo, IP, registros cuando aplique"
+        ],
+        h204: "20.4 Uso de Datos",
+        p204: "Sus datos se utilizan para:",
+        list204: [
+          "Proporcionar los servicios de la Aplicación",
+          "Verificar su identidad",
+          "Procesar pagos",
+          "Prevenir fraudes",
+          "Mejorar nuestros servicios",
+          "Cumplir obligaciones legales"
+        ],
+        h205: "20.5 Seguridad",
+        p205: "Implementamos medidas de seguridad técnicas y organizativas para proteger su información, incluyendo encriptación y acceso restringido. Tanda+ no almacena datos completos de tarjetas de crédito o débito; el procesamiento de pagos con tarjeta y pago en tienda se realiza mediante Stripe.",
+        noteText: "Para ver el documento completo con todas las disposiciones, abre “Términos y condiciones” desde el sitio principal.",
+        footerContact: 'Para ejercer derechos ARCO o consultas de privacidad: <a href="mailto:equipo@tandamas.mx" style="text-decoration:underline">equipo@tandamas.mx</a>',
+        footerCopy: "© 2026 Tanda+. Todos los derechos reservados."
+      },
+      en: {
+        lang: "en",
+        title: "Privacy Policy — Tanda+",
+        metaDescription: "Privacy Policy of Tanda+ (Tanda Más).",
+        ogTitle: "Privacy Policy — Tanda+",
+        ogDescription: "Review the Privacy Policy of Tanda+ (Tanda Más).",
+        documentTitle: "Privacy Policy — Tanda+",
+        backBtn: "← Back to home",
+        pageTitle: "Privacy Policy",
+        pageSub: "Version 1.1 · Last updated: March 2026",
+        referenceLabel: "Reference:",
+        referenceText: "Section 20 of the Terms and Conditions (Version 1.1 · March 2026)",
+        h201: "20.1 Privacy Policy",
+        p201: "The processing of your personal data is governed by this Privacy Policy, available in the Tanda+ application and on our website tandamas.mx.",
+        h202: "20.2 Data Sharing",
+        p202a: "Your basic information (name, photo, reputation) is visible to other users within the tandas in which you participate. Tanda+ does not sell or share your personal information with third parties for marketing purposes.",
+        p202b: "To process card payments or in-store payments, only the necessary data is shared with the payment provider Stripe, Inc. (and its processors), such as transaction identifiers and, when applicable, billing details, in accordance with Stripe’s privacy policy applicable in your region.",
+        h203: "20.3 Data We Collect",
+        list203: [
+          "Identification data (name, ID, photograph)",
+          "Contact data (email, shipping address)",
+          "Transactional data (payment history)",
+          "Application usage data",
+          "Technical data: device, IP, logs when applicable"
+        ],
+        h204: "20.4 Use of Data",
+        p204: "Your data is used to:",
+        list204: [
+          "Provide application services",
+          "Verify your identity",
+          "Process payments",
+          "Prevent fraud",
+          "Improve our services",
+          "Comply with legal obligations"
+        ],
+        h205: "20.5 Security",
+        p205: "We implement technical and organizational security measures to protect your information, including encryption and restricted access. Tanda+ does not store full credit or debit card details; card and in-store payment processing is handled by Stripe.",
+        noteText: 'To view the full document with all provisions, open “Terms and Conditions” from the main site.',
+        footerContact: 'To exercise ARCO rights or for privacy inquiries: <a href="mailto:equipo@tandamas.mx" style="text-decoration:underline">equipo@tandamas.mx</a>',
+        footerCopy: "© 2026 Tanda+. All rights reserved."
+      }
+    };
+
+    function renderList(id, items) {
+      const el = document.getElementById(id);
+      el.innerHTML = items.map(item => `<li>${item}</li>`).join('');
+    }
+
+    function setLanguage(lang) {
+      const t = content[lang];
+      document.documentElement.lang = t.lang;
+
+      document.title = t.documentTitle;
+      document.querySelector('meta[name="description"]').setAttribute('content', t.metaDescription);
+      document.querySelector('meta[property="og:title"]').setAttribute('content', t.ogTitle);
+      document.querySelector('meta[property="og:description"]').setAttribute('content', t.ogDescription);
+
+      document.getElementById('backBtn').textContent = t.backBtn;
+      document.getElementById('pageTitle').textContent = t.pageTitle;
+      document.getElementById('pageSub').textContent = t.pageSub;
+      document.getElementById('referenceLabel').textContent = t.referenceLabel;
+      document.getElementById('referenceText').textContent = t.referenceText;
+      document.getElementById('h201').textContent = t.h201;
+      document.getElementById('p201').textContent = t.p201;
+      document.getElementById('h202').textContent = t.h202;
+      document.getElementById('p202a').textContent = t.p202a;
+      document.getElementById('p202b').textContent = t.p202b;
+      document.getElementById('h203').textContent = t.h203;
+      document.getElementById('h204').textContent = t.h204;
+      document.getElementById('p204').textContent = t.p204;
+      document.getElementById('h205').textContent = t.h205;
+      document.getElementById('p205').textContent = t.p205;
+      document.getElementById('noteText').textContent = t.noteText;
+      document.getElementById('footerContact').innerHTML = t.footerContact;
+      document.getElementById('footerCopy').textContent = t.footerCopy;
+
+      renderList('list203', t.list203);
+      renderList('list204', t.list204);
+
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+      localStorage.setItem('tandamas-lang', lang);
+    }
+
+    const savedLang = localStorage.getItem('tandamas-lang') || 'es';
+    setLanguage(savedLang);
+  </script>
 </body>
 </html>
